@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function HomeBannar({ className,title, description,Button1Classname, buttonText1,Button2Classname, buttonText2, imageUrl }) {
   return (
@@ -10,7 +11,7 @@ function HomeBannar({ className,title, description,Button1Classname, buttonText1
           {/* <div className='w-full  flex mt-8'> */}
             <div className='w-full flex  gap-5 mt-8'>
               <div className='w-full md:w-1/2 lg:w-[30%] flex justify-center md:justify-start'>
-                <button className={`${Button1Classname} px-6 sm:px-10 md:px-3 py-2 rounded-full font-bold  text-[#3B5D50]`}>{buttonText1}</button>
+              <Link to="/shop" ><button className={`${Button1Classname} px-6 sm:px-10 md:px-3 py-2 rounded-full font-bold  text-[#3B5D50]`}>{buttonText1}</button></Link> 
               </div>
               <div className='w-full md:w-1/2 lg:w-[30%] flex justify-center md:justify-start'>
                 <button className={`${Button2Classname} px-6 sm:px-10 md:px-4  py-[6px]  rounded-full font-bold text-white `}>{buttonText2}</button>
