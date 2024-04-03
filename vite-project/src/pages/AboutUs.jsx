@@ -69,11 +69,13 @@ const AboutUs = () => {
     <Layout>
       <div className="bg-[#EFF2F1] pb-24">
         <HomeBanner
-          title="Cutting Edge Interior Design Studio"
+          title="About us"
           description="Cutting Edge Interior Design Studio: Where creativity meets precision. Elevate your space with innovative design concepts tailored to your unique style."
           buttonText1="Shop Now"
           buttonText2="Explore"
           imageUrl="/public/featured/couch.png"
+          Button1Classname="bg-[#F9BF29]"
+        Button2Classname="border-[#9DACA0] border-2"
         />
 
         <div className="w-[95%] mx-auto flex my-10">
