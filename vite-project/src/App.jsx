@@ -12,6 +12,7 @@ import Cart from './pages/Cart'
 import SignUp from './pages/SignUp'
 import Shop from './pages/Shop';
 import Blogs from './pages/Blogs';
+import Checkout from './pages/Checkout';
 
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
         <Route path='/Register' element={<SignUp/>} />
         <Route path='/Shop' element={<Shop/>} />
         <Route path='/Blogs' element={<Blogs/>} />
+        <Route path='/Checkout' element={<Checkout/>} />
         
       
       </Routes>
