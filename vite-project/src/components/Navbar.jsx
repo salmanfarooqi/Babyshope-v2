@@ -22,10 +22,6 @@ const Navbar = () => {
       path: "/about",
     },
     {
-      title: "Services",
-      path: "/aboutus",
-    },
-    {
       title: "Blog",
       path: "/aboutus",
     },
