@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Layout from "../components/Layout";
 import HomeBanner from "../components/HomeBannar";
 import Card from "../components/Card";
@@ -7,7 +7,24 @@ import DotImages from "../components/DotImages";
 import { Link } from "react-router-dom";
 import SimpleSlider from "../components/SimpleSlider";
 import RecentBlog from "../components/RecentBlog";
+import axios from "axios";
 const Home = () => {
+  const [apiData,setapiData]=useState([])
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://localhost:9000/product");
+        console.log("data", response.data);
+        
+          setapiData(response.data)
+       
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
   const CardData = [
     {
       className: "",
@@ -37,7 +54,6 @@ const Home = () => {
       overlayOpacity: "20",
     },
   ];
-
   const choosdata = [
     {
       imageSrc: "/public/featured/truck.svg",
@@ -64,7 +80,6 @@ const Home = () => {
         "Experience peace of mind with our hassle-free returns policy, ensuring effortless exchanges or refunds for your utmost satisfaction.",
     },
   ];
-
   const dummyTestimonials = [
     {
       quote:
@@ -105,7 +120,6 @@ const Home = () => {
           buttonText2="Explore"
           imageUrl="https://time.com/shopping/static/98259b8f68e4d765e…aabbbb57c27/4febf/best-baby-toys-6-12-months.webp"
         />
-
         <div className="w-[85%] mx-auto flex my-20 gap-5">
           <div className="w-1/3">
             <div className="text-3xl font-semibold">
@@ -120,12 +134,14 @@ const Home = () => {
             </button>
           </div>
           <div className="flex ">
-            {CardData.map((item, index) => (
+            {apiData.map((item, index) => (
               <Card
                 linkTo={item.linkTo}
-                productName={item.productName}
-                productPrice={item.productPrice}
-                productImage={item.productImage}
+                productName={item.name}
+                productPrice={item.
+                  price
+                  }
+                productImage="/public/featured/product-1.png"
                 overlayColor={item.overlayColor}
                 overlayOpacity={item.overlayOpacity}
                 showIcon={true}
@@ -134,7 +150,6 @@ const Home = () => {
             ))}
           </div>
         </div>
-
         <div className="w-[95%] mx-auto flex my-10">
           <div className="w-full flex  flex-wrap lg:flex-nowrap gap-14 ">
             <div className="w-full lg:w-[50%]">
@@ -171,9 +186,6 @@ const Home = () => {
             </div>
           </div>
         </div>
-
- 
-
         <div className="w-[85%] mx-auto gap-8 flex my-28">
           <div className="flex">
             <img
@@ -218,11 +230,9 @@ const Home = () => {
             </div>
           </div>
         </div>
-
         <div className="my-10">
           <SimpleSlider testimonials={dummyTestimonials} />
         </div>
-
         <div className="my-20  w-[85%] mx-auto">
           <div className="flex justify-between ">
             <div className="font-semibold text-4xl">Recent Blog</div>
@@ -258,5 +268,4 @@ const Home = () => {
     </Layout>
   );
 };
-
 export default Home;

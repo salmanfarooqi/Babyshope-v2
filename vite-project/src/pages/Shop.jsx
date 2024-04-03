@@ -61,7 +61,7 @@ function Shop() {
               {data.map((item, index) => (
                 <Card
                   key={index}
-                  className="w-[240px]"
+                  className="!w-[250px]"
                   productName={item.name} 
                   productPrice={item.price} 
                   productImage={item.image} 

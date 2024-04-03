@@ -123,7 +123,7 @@ const Blogs = () => {
               author={item.author}
               date={item.date}
               link={item.link}
-              className="w-[320px] mb-4 mx-4 py-5" // Adjust margins to create spacing between items
+              className="!w-[320px] mb-4 mx-4 py-5" // Adjust margins to create spacing between items
             />
           ))}
         </div>
