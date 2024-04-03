@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import Layout from '../components/Layout';
 
 function SignUp() {
   const [formData, setFormData] = useState({
@@ -33,10 +34,11 @@ function SignUp() {
   };
 
   return (
+    <Layout>
     <div className="container mx-auto p-5">
-      <h3 className="text-center my-2 text-lg font-semibold">Register Your Account</h3>
+      <h3 className="text-center py-4 text-2xl font-semibold">Register Your Account</h3>
       <div className="flex justify-center mb-2">
-        <div className="w-full lg:w-1/2 border rounded-lg p-5">
+        <div className="w-full lg:w-1/2 border rounded-lg p-5 bg-[#EFF2F1]">
           <form onSubmit={handleSubmit}>
             <div className="mb-3 mt-3">
               <label htmlFor="name">Name:</label>
@@ -58,6 +60,7 @@ function SignUp() {
         </div>
       </div>
     </div>
+    </Layout>
   );
 }
 

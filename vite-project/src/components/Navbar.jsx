@@ -21,17 +21,14 @@ const Navbar = () => {
       title: "About us",
       path: "/about",
     },
-    {
-      title: "Services",
-      path: "/aboutus",
-    },
+
     {
       title: "Blog",
-      path: "/aboutus",
+      path: "/Blogs",
     },
     {
       title: "Contact us",
-      path: "/aboutus",
+      path: "/contact",
     },
   ];
 

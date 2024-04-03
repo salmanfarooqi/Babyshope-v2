@@ -44,6 +44,8 @@ const AboutUs = () => {
                     buttonText1="Shop Now"
                     buttonText2="Explore"
                     imageUrl="/public/featured/couch.png"
+                    Button1Classname="bg-[#F9BF29]"
+                    Button2Classname="border-[#9DACA0] border-2"
                 > </HomeBannar>
 
 <div className="w-[90%] mx-auto flex my-10">

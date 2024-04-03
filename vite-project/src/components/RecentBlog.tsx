@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function RecentBlog({ imageUrl, title, author, date, link }) {
+function RecentBlog({className, imageUrl, title, author, date, link }) {
   return (
-    <div className='w-[400px] flex flex-col items-center justify-center mt-[500px]'>
+    <div className={` ${className} w-full flex flex-col items-center justify-center`}>
       <Link to={link}>
         <div className="relative">
           <img src={imageUrl} alt={title} className='rounded-2xl hover:opacity-50 transition-opacity duration-300' />

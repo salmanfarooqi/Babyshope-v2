@@ -1,13 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Layout from '../components/Layout';
 
 function LoginForm() {
   return (
-    <div className="container mx-auto px-4">
-      <h3 className="text-center my-2 text-lg font-semibold">Sign In To Your Account</h3>
+    <Layout>
+    <div className="container mx-auto w-full  ">
+      <h3 className="text-center  text-2xl  py-4  font-semibold">Sign In To Your Account</h3>
       <div className="flex justify-center mb-2">
-        <div className="w-full lg:w-1/2 xl:w-1/3 border rounded-lg p-5">
-          <form action="/action_page.php">
+        <div className="w-full lg:w-1/2 xl:w-1/3 border rounded-lg p-5 bg-[#EFF2F1] ">
+          <form action="/action_page.php ">
             <div className="mb-3 mt-3">
               <label htmlFor="email">Email:</label>
               <input type="email" className="block w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-400" id="email" placeholder="Enter email" name="email" required />
@@ -29,6 +31,7 @@ function LoginForm() {
         </div>
       </div>
     </div>
+    </Layout>
   );
 }
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../components/Layout';
+import HomeBanner from "../components/HomeBannar";
 
 function ShoppingCart() {
   
@@ -26,6 +27,12 @@ function ShoppingCart() {
 
   return (
     <Layout>
+      <>
+       <HomeBanner
+        title="Cart"
+        className=""
+       
+      />
       <div className="main_co-section before-footer-section bg-gray-100">
         <div className="container mx-auto py-8">
           <div className="mb-5">
@@ -79,7 +86,68 @@ function ShoppingCart() {
             </div>
           </div>
         </div>
+
+       
+
+
+          {/*  cart summary */}
+          <div className="container mx-auto py-8">
+      <div className="flex flex-wrap justify-between mb-5">
+        <div className="w-full md:w-[40%] mb-5 md:mb-0">
+          <div className="flex flex-wrap mb-5">
+            <div className="w-full md:w-[140px] mb-3 md:mb-0">
+              <button className="bg-black text-white py-2 px-2 rounded-full w-full">Update Cart</button>
+            </div>
+            <div className="w-full md:w-[160px] ml-8  mb-3">
+              <button className="border border-black bg-black  text-white py-2 px-2 rounded-full w-full">Continue Shopping</button>
+            </div>
+          </div>
+          <div className="flex flex-wrap items-center">
+            <div className="w-full md:w-6/12 mb-3 md:mb-0">
+              <label className="text-black text-lg mb-1" htmlFor="coupon">Coupon</label>
+              <p className="text-black text-sm mb-3">Enter your coupon code if you have one.</p>
+              <input type="text" className="form-input py-4 px-4 rounded-md w-full" id="coupon" placeholder="Coupon Code" />
+            </div>
+            <div className="w-full w-[50%] flex justify-end ">
+              <button className="bg-black text-white py-2 px-4 rounded-full">Apply Coupon</button>
+            </div>
+          </div>
+        </div>
+        <div className="w-full md:w-[30%] pl-5">
+          <div className="flex justify-end">
+            <div className="w-full md:w-9/12">
+              <div className="flex py-1 border-b border-black mb-5">
+                <h3 className="text-black text-lg uppercase">Cart Totals</h3>
+              </div>
+              <div className="flex mb-3">
+                <div className="w-6/12">
+                  <span className="text-black">Subtotal</span>
+                </div>
+                <div className="w-6/12 text-right">
+                  <strong className="text-black">&pound;230.00</strong>
+                </div>
+              </div>
+              <div className="flex mb-5">
+                <div className="w-6/12">
+                  <span className="text-black">Total</span>
+                </div>
+                <div className="w-6/12 text-right">
+                  <strong className="text-black">&pound;230.00</strong>
+                </div>
+              </div>
+              <div className="flex justify-end">
+                <button className="bg-black text-white py-2 px-4 rounded-full w-full" onClick={() => window.location='checkout.html'}>Proceed To Checkout</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
+         </div>
+        
+    
+      
+      </>
     </Layout>
   );
 }
