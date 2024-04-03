@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 
 function YourOrder({ className }) {
     const data = [
         { id: 1, Products: "Top Up T-Shirt x 1", Total: "£250.00" },
+        { id: 2, Products: "Top Up T-Shirt x 1", Total: "£100.00" },
         { id: 2, Products: "Top Up T-Shirt x 1", Total: "£100.00" },
     ];
 
@@ -40,7 +41,7 @@ function YourOrder({ className }) {
     };
 
     return (
-        <div className={`${className} w-full border border-gray-300 justify-center items-center py-10`}>
+        <div className={`${className} w-full border border-gray-300 justify-center items-center py-10 text-[#6A6A6A]`}>
             {/* Product section */}
             <div className='w-full flex justify-center'>
                 <div className='w-full flex justify-between'>

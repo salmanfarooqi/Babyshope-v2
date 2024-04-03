@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Dropdown from "./DropDown";
 
 function BillingDetails() {
@@ -32,7 +32,7 @@ function BillingDetails() {
     setShowAccountCreation(!showAccountCreation);
   };
   return (
-    <div className="w-full py-10 border-gray-300 border px-10 rounded-sm ">
+    <div className="w-full py-10 border-gray-300 border px-10 rounded-sm text-[#6A6A6A]">
       <div className="flex flex-col">
         <label>Country *</label>
         <Dropdown

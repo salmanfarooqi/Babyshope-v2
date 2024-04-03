@@ -1,8 +1,7 @@
-import React from 'react'
 
 function ContactUsForm() {
   return (
-    <div className='w-full flex flex-col justify-center items-center'>
+    <div className='w-full flex flex-col justify-center items-center '>
     <div className='w-1/2'>
     <div className=' flex justify-between'>
     <div className='flex flex-col justify-between w-[48%]'>
@@ -17,7 +16,7 @@ Last name</label>
 
     </div>
     <div className='w-full flex flex-col'>
-    <label>Email address</label>
+    <label >Email address</label>
     <input type='text' name='' className='border border-gray-400 rounded-lg px-1 py-2 focus:outline-gray-500'/>
     </div>
     <div className='w-full flex flex-col h-[150px]'>

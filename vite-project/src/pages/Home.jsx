@@ -1,4 +1,3 @@
-import React from "react";
 import Layout from "../components/Layout";
 import HomeBanner from "../components/HomeBannar";
 import Card from "../components/Card";
