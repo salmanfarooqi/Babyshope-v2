@@ -114,13 +114,11 @@ const Home = () => {
     <Layout>
       <div className="bg-[#EFF2F1] pb-24">
         <HomeBanner
-          title="Cutting Edge Interior Design Studio"
-          description="Cutting Edge Interior Design Studio: Where creativity meets precision. Elevate your space with innovative design concepts tailored to your unique style."
+          title="The Ultimate Baby Haven - Welcome!"
+          description="Step into a world of wonder and warmth at our Baby Shop! From adorable apparel to essential accessories, we've got everything to make your little one's journey as sweet as can be. Explore now and let the magic of parenthood unfold!"
           buttonText1="Shop Now"
           buttonText2="Explore"
-          imageUrl="/public/featured/couch.png"
-          Button1Classname="bg-[#F9BF29]"
-        Button2Classname="border-[#9DACA0] border-2"
+          imageUrl="https://time.com/shopping/static/98259b8f68e4d765e…aabbbb57c27/4febf/best-baby-toys-6-12-months.webp"
         />
         <div className="w-[85%] mx-auto flex my-20 gap-5">
           <div className="w-1/3">

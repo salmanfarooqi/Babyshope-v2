@@ -17,7 +17,11 @@ function Card({ className, productId, productName, productPrice, productImage, o
 
   return (
     <div className={` ${className} w-full relative group `}>
+<<<<<<< HEAD
+      <Link to={"/cart"} className="group">
+=======
     
+>>>>>>> 6d816fecf208302135bb9f7e7129aecea52a34f2
         <div className="w-full flex flex-col items-center justify-center relative group-hover:translate-y-[-20px] transition-transform duration-300">
           <div className='image-container'>
             <img src={productImage || ""} className="w-full mb-auto" alt="Product Image" />
