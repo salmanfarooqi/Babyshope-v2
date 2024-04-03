@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Layout from '../components/Layout';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function SignUp() {
   const [formData, setFormData] = useState({
@@ -20,15 +23,18 @@ function SignUp() {
     console.log("handle submit is hit")
     e.preventDefault();
     try {
-      const response = await axios.post('/Register', {
+      const response = await axios.post("http://localhost:9000/signup", {
         name,
         email,
         password
       });
-      console.log(response.data.message);
+      console.log(response.data.message,"response");
+      toast.success(response.data.message)
+      
      
     } catch (error) {
       console.error('Error:', error);
+      toast.error(error.response.data.message);
       // Handle error states (display error message to the user, etc.)
     }
   };
@@ -59,7 +65,9 @@ function SignUp() {
           </form>
         </div>
       </div>
+      <ToastContainer/>
     </div>
+    
     </Layout>
   );
 }

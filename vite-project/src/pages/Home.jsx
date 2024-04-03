@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Layout from "../components/Layout";
 import HomeBanner from "../components/HomeBannar";
 import Card from "../components/Card";
@@ -7,7 +7,24 @@ import DotImages from "../components/DotImages";
 import { Link } from "react-router-dom";
 import SimpleSlider from "../components/SimpleSlider";
 import RecentBlog from "../components/RecentBlog";
+import axios from "axios";
 const Home = () => {
+  const [apiData,setapiData]=useState([])
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://localhost:9000/product");
+        console.log("data", response.data);
+        
+          setapiData(response.data)
+       
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
   const CardData = [
     {
       className: "",
@@ -119,12 +136,14 @@ const Home = () => {
             </button>
           </div>
           <div className="flex ">
-            {CardData.map((item, index) => (
+            {apiData.map((item, index) => (
               <Card
                 linkTo={item.linkTo}
-                productName={item.productName}
-                productPrice={item.productPrice}
-                productImage={item.productImage}
+                productName={item.name}
+                productPrice={item.
+                  price
+                  }
+                productImage="/public/featured/product-1.png"
                 overlayColor={item.overlayColor}
                 overlayOpacity={item.overlayOpacity}
                 showIcon={true}
