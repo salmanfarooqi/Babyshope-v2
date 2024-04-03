@@ -31,6 +31,7 @@ function LoginForm() {
       localStorage.setItem('token', token);
 
       toast.success(response.data.message)
+      navigate("/")
 
     
     } catch (error) {
