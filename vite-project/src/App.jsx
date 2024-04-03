@@ -10,6 +10,8 @@ import ShoppingCart from './pages/Cart';
 import AboutUs from './pages/AboutUs';
 import Cart from './pages/Cart'
 import SignUp from './pages/SignUp'
+import Shop from './pages/Shop';
+import Blogs from './pages/Blogs';
 
 
 const App = () => {
@@ -21,6 +23,9 @@ const App = () => {
         <Route path='/about' element={<AboutUs/>} />
         <Route  path='/login' element={<LoginForm/>} />
         <Route path='/Register' element={<SignUp/>} />
+        <Route path='/Shop' element={<Shop/>} />
+        <Route path='/Blogs' element={<Blogs/>} />
+        
       
       </Routes>
     </div>
