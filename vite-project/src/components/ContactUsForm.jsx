@@ -1,8 +1,8 @@
 
 function ContactUsForm() {
   return (
-    <div className='w-full flex flex-col justify-center items-center '>
-    <div className='w-1/2'>
+    <div className='w-full flex flex-col justify-center items-center text-[#6A6A6A]'>
+    <div className='w-full'>
     <div className=' flex justify-between'>
     <div className='flex flex-col justify-between w-[48%]'>
     <label>First name</label>

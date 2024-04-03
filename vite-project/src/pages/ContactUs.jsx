@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '../components/Layout';
 import HomeBanner from "../components/HomeBannar";
+import ContactUsCard from '../components/ContactUsCard';
 
 function ContactForm() {
   return (
@@ -23,7 +24,7 @@ function ContactForm() {
 
             <div className="w-full md:w-8/12 lg:w-8/12 pb-4">
 
-              <div className="flex items-center space-x-8 mb-5">
+              {/* <div className="flex items-center space-x-8 mb-5">
                 <div className="flex items-center mb-4">
                   <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" fill="white" className="bg-[#3B5D50] p-2 rounded mr-2" viewBox="0 0 16 16">
                     <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
@@ -42,8 +43,10 @@ function ContactForm() {
                   </svg>
                   <p className="text-sm">+1 294 3925 3939</p>
                 </div>
-              </div>
-
+              </div> */}
+<div className='py-10'>
+              <ContactUsCard/>
+</div>
               <form>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
@@ -66,6 +69,7 @@ function ContactForm() {
 
                 <button type="submit" className="bg-[#3B5D50] mt-8  text-white font-bold py-2 px-4 rounded-xl focus:outline-none focus:shadow-outline">Send Message</button>
               </form>
+
 
             </div>
 
