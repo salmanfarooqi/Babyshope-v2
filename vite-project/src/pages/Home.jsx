@@ -129,8 +129,8 @@ const Home = () => {
   return (
     <Layout>
       <HomeBanner
-        title="Cutting Edge Interior Design Studio"
-        description="Cutting Edge Interior Design Studio: Where creativity meets precision. Elevate your space with innovative design concepts tailored to your unique style."
+        title="The Baby shop"
+        description="Everything you need related to babies "
         buttonText1="Shop Now"
         buttonText2="Explore"
         imageUrl="/public/featured/couch.png"

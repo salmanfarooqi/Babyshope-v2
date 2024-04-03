@@ -39,7 +39,7 @@ const AboutUs = () => {
             <div>
                 <HomeBannar
 
-                    title="Cutting Edge Interior Design Studio"
+                    title="About us"
                     description="Cutting Edge Interior Design Studio: Where creativity meets precision. Elevate your space with innovative design concepts tailored to your unique style."
                     buttonText1="Shop Now"
                     buttonText2="Explore"
