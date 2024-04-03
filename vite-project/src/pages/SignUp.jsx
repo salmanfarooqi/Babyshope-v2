@@ -52,7 +52,7 @@ function SignUp() {
               <label htmlFor="password">Password:</label>
               <input type="password" className="block w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-400" id="password" placeholder="Enter password" name="password" value={password} onChange={handleChange} required />
             </div>
-            <button type="submit" className="block w-full bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600" onClick={handleSubmit}>submit</button>
+            <button type="submit" className="block w-full bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600" onClick={handleSubmit}>SignuUp</button>
             <div className="text-center mt-3">
               <Link to={"/login"}><p className="block text-blue-500 hover:text-blue-700">Already have an account? Login</p></Link>
             </div>

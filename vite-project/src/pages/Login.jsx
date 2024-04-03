@@ -22,7 +22,7 @@ function LoginForm() {
               <input type="checkbox" className="form-checkbox" id="remember" name="remember" />
               <label htmlFor="remember" className="ml-2">Remember me</label>
             </div>
-            <button type="submit" className="block w-full bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Submit</button>
+            <button type="submit" className="block w-full bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Login</button>
             <div className="text-center mt-4">
               {/* <a href="" className="block text-blue-500 hover:text-blue-700">Forgotten your password?</a> */}
              <Link to={"/Register"}> <p className="block mt-2 text-blue-500 hover:text-blue-700">New here? Register</p></Link>
