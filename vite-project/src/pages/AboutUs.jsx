@@ -1,90 +1,124 @@
-import React from 'react'
-import Layout from '../components/Layout'
-import HomeBannar from '../components/HomeBannar'
-import ChooseUsCard from '../components/ChooseUsCard'
-import Card from '../components/Card'
-
+import React from "react";
+import Layout from "../components/Layout";
+import HomeBanner from "../components/HomeBannar";
+import Card from "../components/Card";
+import ChooseUsCard from "../components/ChooseUsCard";
+import DotImages from "../components/DotImages";
+import { Link } from "react-router-dom";
+import SimpleSlider from "../components/SimpleSlider";
+import RecentBlog from "../components/RecentBlog";
 const AboutUs = () => {
-    const CardData = [
-        {
-          className: "",
-          linkTo: "cart.html",
-          productName: "Nordic Chair",
-          productPrice: "£50.00",
-          productImage: "/featured/product-1.png",
-          overlayColor: "#DCE5E4",
-          overlayOpacity: "20",
-        },
-        {
-          className: "",
-          linkTo: "cart.html",
-          productName: "Nordic Chair",
-          productPrice: "£50.00",
-          productImage: "/featured/product-1.png",
-          overlayColor: "#DCE5E4",
-          overlayOpacity: "20",
-        },
-        {
-          className: "",
-          linkTo: "cart.html",
-          productName: "Nordic Chair",
-          productPrice: "£50.00",
-          productImage: "/featured/product-1.png",
-          overlayColor: "#DCE5E4",
-          overlayOpacity: "20",
-        },
-      ];
-    return (
-        <Layout>
-            <div>
-                <HomeBannar
+  const choosdata = [
+    {
+      imageSrc: "/public/featured/truck.svg",
+      title: "Fast & Free Shipping",
+      description:
+        "Enjoy swift and complimentary shipping, ensuring your furniture arrives promptly and hassle-free to your doorstep.",
+    },
+    {
+      imageSrc: "/public/featured/bag.svg",
+      title: "Easy to Shop",
+      description:
+        "Explore our user-friendly online platform designed for effortless browsing and seamless shopping, ensuring a hassle-free experience from start to finish.",
+    },
+    {
+      imageSrc: "/public/featured/support.svg",
+      title: "24/7 Support",
+      description:
+        "Experience uninterrupted assistance around the clock, ensuring peace of mind and prompt resolution to any inquiries or concerns, whenever you need it.",
+    },
+    {
+      imageSrc: "/public/featured/return.svg",
+      title: "Hassle Free Returns",
+      description:
+        "Experience peace of mind with our hassle-free returns policy, ensuring effortless exchanges or refunds for your utmost satisfaction.",
+    },
+  ];
 
-                    title="Cutting Edge Interior Design Studio"
-                    description="Cutting Edge Interior Design Studio: Where creativity meets precision. Elevate your space with innovative design concepts tailored to your unique style."
-                    buttonText1="Shop Now"
-                    buttonText2="Explore"
-                    imageUrl="/public/featured/couch.png"
-                > </HomeBannar>
+  const dummyTestimonials = [
+    {
+      quote:
+        "Impeccable product quality! Every piece of furniture I've purchased from Furni Website has exceeded my expectations in terms of both style and durability. The attention to detail and craftsmanship are truly outstanding.",
+      image: "/featured/person-1.jpg",
+      author: "Maria Jones",
+      position: "CEO, Co-Founder, XYZ Inc.",
+    },
+    {
+      quote:
+        "Impeccable product quality! Every piece of furniture I've purchased from Furni Website has exceeded my expectations in terms of both style and durability. The attention to detail and craftsmanship are truly outstanding.",
+      image: "/featured/person-1.jpg",
+      author: "Maria Jones",
+      position: "CEO, Co-Founder, XYZ Inc.",
+    },
+    {
+      quote:
+        "Impeccable product quality! Every piece of furniture I've purchased from Furni Website has exceeded my expectations in terms of both style and durability. The attention to detail and craftsmanship are truly outstanding.",
+      image: "/featured/person-1.jpg",
+      author: "Maria Jones",
+      position: "CEO, Co-Founder, XYZ Inc.",
+    },
+    {
+      quote: "Another testimonial",
+      image: "/featured/person-2.jpg",
+      author: "John Doe",
+      position: "CTO, ABC Inc.",
+    },
+    // Add more dummy testimonial objects as needed
+  ];
+  return (
+    <Layout>
+      <div className="bg-[#EFF2F1] pb-24">
+        <HomeBanner
+          title="Cutting Edge Interior Design Studio"
+          description="Cutting Edge Interior Design Studio: Where creativity meets precision. Elevate your space with innovative design concepts tailored to your unique style."
+          buttonText1="Shop Now"
+          buttonText2="Explore"
+          imageUrl="/public/featured/couch.png"
+        />
 
-<div className="w-[90%] mx-auto flex my-10">
-        <div>
-          <div className="text-2xl font-semibold">
-            Crafted with excellent material.
-          </div>
-          <div>
-            Skillfully fashioned from premium materials, embodying quality and
-            precision in every detail.
-          </div>
-          <button className="bg-[#2F2F2F] text-white rounded-lg px-3 py-2">
-            Explore
-          </button>
-        </div>
-        <div className="flex ">
-          {CardData.map((item, index) => (
-            <Card
-              linkTo={item.linkTo}
-              productName={item.productName}
-              productPrice={item.productPrice}
-              productImage={item.productImage}
-              overlayColor={item.overlayColor}
-              overlayOpacity={item.overlayOpacity}
-              showIcon={true}
-              className="w-"
-            />
-          ))}
-        </div>
-      
-      </div>
-
-                <div className='flex '>
-                <ChooseUsCard className="mt-8" title="Fast & Free Shipping" imageSrc={"/featured/img-grid-2.jpg"} />
-                <ChooseUsCard className="mt-8" title="Fast & Free Shipping" imageSrc={"/featured/img-grid-2.jpg"} />
-                </div>
-
-               
+        <div className="w-[95%] mx-auto flex my-10">
+          <div className="w-full flex  flex-wrap lg:flex-nowrap gap-14 ">
+            <div className="w-full lg:w-[50%]">
+              <div className="mt-20 px-10">
+                <h1 className="text-3xl text-[#2F2F2F] font-medium">
+                  Why Choose Us
+                </h1>
+                <p className="mt-3 ">
+                  Discover unparalleled craftsmanship and timeless elegance,
+                  making us your premier choice for exquisite furniture
+                  solutions.
+                </p>
+              </div>
+              <div className="grid grid-cols-2 mt-9 ">
+                {choosdata.map((item, index) => (
+                  <ChooseUsCard
+                    imageSrc={item.imageSrc}
+                    title={item.title}
+                    description={item.description}
+                    className={"px-0 text-sm"}
+                  />
+                ))}
+              </div>
             </div>
-        </Layout>
-    )
-}
+            <div className="w-full lg:w-[40%] flex justify-end">
+              <DotImages
+                numRows={8}
+                numDots={9}
+                dotColors="bg-[#F9BF29] "
+                imageSrc="/public/featured/img-grid-2.jpg"
+                className={"w-1/2"}
+                ImageClass={"w-full mt-10 ml-12 "}
+              />
+            </div>
+          </div>
+        </div>
 
-export default AboutUs
+        <div className="my-10">
+          <SimpleSlider testimonials={dummyTestimonials} />
+        </div>
+      </div>
+    </Layout>
+  );
+};
+
+export default AboutUs;

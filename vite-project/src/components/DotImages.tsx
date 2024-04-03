@@ -18,7 +18,7 @@ function DotImages({ numRows, numDots, dotColors, imageSrc,className,ImageClass 
           </div>
         ))}
       </div>
-      <div className='absolute left-32 top-24'>
+      <div className='absolute left-12  top-10'>
         <img src={imageSrc} alt='' className={ `${ImageClass} rounded-xl`} />
       </div>
     </div>
