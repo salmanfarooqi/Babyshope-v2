@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function Card({ className, productName, productPrice, productImage, showIcon }) {
   return (
     <div className={` ${className} w-full relative group `}>
-      <Link to={"assa"} className="group">
+      <Link to={"/cart"} className="group">
         <div className="w-full flex flex-col items-center justify-center relative group-hover:translate-y-[-20px] transition-transform duration-300">
           <div className='image-container'>
             <img src={productImage} className="w-full mb-auto" alt="Product Image" />
