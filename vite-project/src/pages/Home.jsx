@@ -9,15 +9,14 @@ import SimpleSlider from "../components/SimpleSlider";
 import RecentBlog from "../components/RecentBlog";
 import axios from "axios";
 const Home = () => {
-  const [apiData,setapiData]=useState([])
+  const [apiData, setapiData] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get("http://localhost:9000/product");
         console.log("data", response.data);
-        
-          setapiData(response.data)
-       
+
+        setapiData(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -113,12 +112,16 @@ const Home = () => {
   return (
     <Layout>
       <div className="bg-[#EFF2F1] pb-24">
+       
         <HomeBanner
+       className="pb-20 pt-3"
           title="The Ultimate Baby Haven - Welcome!"
           description="Step into a world of wonder and warmth at our Baby Shop! From adorable apparel to essential accessories, we've got everything to make your little one's journey as sweet as can be. Explore now and let the magic of parenthood unfold!"
           buttonText1="Shop Now"
+          Button1Classname="bg-[#F9BF29]"
+          Button2Classname="border-[#9DACA0] border-2 "
           buttonText2="Explore"
-          imageUrl="https://time.com/shopping/static/98259b8f68e4d765e…aabbbb57c27/4febf/best-baby-toys-6-12-months.webp"
+          imageUrl="/featured/toys.png"
         />
         <div className="w-[85%] mx-auto flex my-20 gap-5">
           <div className="w-1/3">
@@ -138,9 +141,7 @@ const Home = () => {
               <Card
                 linkTo={item.linkTo}
                 productName={item.name}
-                productPrice={item.
-                  price
-                  }
+                productPrice={item.price}
                 productImage="/public/featured/product-1.png"
                 overlayColor={item.overlayColor}
                 overlayOpacity={item.overlayOpacity}
@@ -189,21 +190,21 @@ const Home = () => {
         <div className="w-[85%] mx-auto gap-8 flex my-28">
           <div className="flex">
             <img
-              src="/public/featured/product-1.png"
+              src="https://png.pngtree.com/png-clipart/20231014/original/pngtree-toy-teddy-bear-in-brown-color-png-image_13300050.png"
               alt=""
               className="w-32 h-32"
             />
-            <div>
-              <h1>Nordic Chair</h1>
+            <div className="font-bold">
+              <h1>Baby Doll Toy</h1>
               <p>
-                Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio
+              Experience joy with our Baby Doll Toy collection.
               </p>
               <Link>Read More</Link>
             </div>
           </div>
           <div className="flex">
             <img
-              src="/public/featured/product-2.png"
+              src="https://png.pngtree.com/png-vector/20220603/ourlarge/pngtree-rag-doll-toy-wrist-png-image_4843361.png"
               alt=""
               className="w-32 h-32"
             />
@@ -217,7 +218,7 @@ const Home = () => {
           </div>
           <div className="flex">
             <img
-              src="/public/featured/product-3.png"
+              src="https://png.pngtree.com/element_our/png_detail/20181113/isometric-kid-toy-png_236063.jpg"
               alt=""
               className="w-32 h-32"
             />
@@ -229,6 +230,9 @@ const Home = () => {
               <Link>Read More</Link>
             </div>
           </div>
+        </div>
+        <div className="flex justify-center my-5 text-4xl ">
+          <h1>Testimonials</h1>
         </div>
         <div className="my-10">
           <SimpleSlider testimonials={dummyTestimonials} />
@@ -242,21 +246,21 @@ const Home = () => {
           </div>
           <div className=" flex gap-10 mt-14 justify-center">
             <RecentBlog
-              imageUrl="/featured/post-1.jpg"
+              imageUrl="https://m.media-amazon.com/images/I/51u3J4tZpSL._SL500_.jpg"
               title="First Time Home Owner Ideas"
               author="Kristin Watson"
               date="Dec 19, 2021"
               link="/blog/first-time-home-owner-ideas"
             />
             <RecentBlog
-              imageUrl="/featured/post-2.jpg"
+              imageUrl="	https://m.media-amazon.com/images/I/51Ty-AQerBL._SL500_.jpg"
               title="First Time Home Owner Ideas"
               author="Kristin Watson"
               date="Dec 19, 2021"
               link="/blog/first-time-home-owner-ideas"
             />
             <RecentBlog
-              imageUrl="/featured/post-3.jpg"
+              imageUrl="https://m.media-amazon.com/images/I/51bhuTrVWZL._SL500_.jpg"
               title="First Time Home Owner Ideas"
               author="Kristin Watson"
               date="Dec 19, 2021"
