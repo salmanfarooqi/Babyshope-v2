@@ -10,15 +10,14 @@ import RecentBlog from "../components/RecentBlog";
 import axios from "axios";
 import HomeSlider from "../components/HomeSlider";
 const Home = () => {
-  const [apiData,setapiData]=useState([])
+  const [apiData, setapiData] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get("http://localhost:9000/product");
         console.log("data", response.data);
-        
-          setapiData(response.data)
-       
+
+        setapiData(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -114,16 +113,21 @@ const Home = () => {
   return (
     <Layout>
       <div className="bg-[#EFF2F1] pb-24">
+       
         {/* <HomeBanner
+       className="pb-20 pt-3"
           title="The Ultimate Baby Haven - Welcome!"
           description="Step into a world of wonder and warmth at our Baby Shop! From adorable apparel to essential accessories, we've got everything to make your little one's journey as sweet as can be. Explore now and let the magic of parenthood unfold!"
           buttonText1="Shop Now"
+          Button1Classname="bg-[#F9BF29]"
+          Button2Classname="border-[#9DACA0] border-2 "
           buttonText2="Explore"
-          imageUrl="https://time.com/shopping/static/98259b8f68e4d765e…aabbbb57c27/4febf/best-baby-toys-6-12-months.webp"
+          imageUrl="/featured/toybanner.png"
         /> */}
+
         <HomeSlider/>
-        <div className="w-[85%] mx-auto flex my-20 gap-5">
-          <div className="w-1/3">
+        <div className="w-[85%] mx-auto flex flex-wrap md:flex-nowrap my-20 gap-5">
+          <div className="w-full flex flex-col items-center md:w-1/3">
             <div className="text-3xl font-semibold">
               Crafted with excellent material.
             </div>
@@ -135,14 +139,12 @@ const Home = () => {
               Explore
             </button>
           </div>
-          <div className="flex ">
+          <div className="flex flex-wrap md:flex-nowrap">
             {apiData.map((item, index) => (
               <Card
                 linkTo={item.linkTo}
                 productName={item.name}
-                productPrice={item.
-                  price
-                  }
+                productPrice={item.price}
                 productImage="/public/featured/product-1.png"
                 overlayColor={item.overlayColor}
                 overlayOpacity={item.overlayOpacity}
@@ -155,7 +157,7 @@ const Home = () => {
         <div className="w-[95%] mx-auto flex my-10">
           <div className="w-full flex  flex-wrap lg:flex-nowrap gap-14 ">
             <div className="w-full lg:w-[50%]">
-              <div className="mt-20 px-10">
+              <div className=" px-10">
                 <h1 className="text-3xl text-[#2F2F2F] font-medium">
                   Why Choose Us
                 </h1>
@@ -176,92 +178,88 @@ const Home = () => {
                 ))}
               </div>
             </div>
-            <div className="w-full lg:w-[40%] flex justify-end">
-              <DotImages
-                numRows={8}
-                numDots={9}
-                dotColors="bg-[#F9BF29] "
-                imageSrc="/public/featured/img-grid-2.jpg"
-                className={"w-1/2"}
-                ImageClass={"w-full mt-10 ml-12 "}
-              />
+        <div>
+<img src="/featured/choose.png" alt="" />
+        </div>
+          </div>
+        </div>
+        <div className="w-[85%] mx-auto gap-8 flex flex-wrap md:flex-nowrap my-28">
+          <div className="flex">
+            <img
+              src="https://png.pngtree.com/png-clipart/20231014/original/pngtree-toy-teddy-bear-in-brown-color-png-image_13300050.png"
+              alt=""
+              className="w-32 h-32"
+            />
+            <div className="">
+              <h1 className="font-bold">Baby Doll Toy</h1>
+              <p>
+              Experience joy with our Baby Doll Toy collection.
+              </p>
+              <Link>Read More</Link>
+            </div>
+          </div>
+          <div className="flex">
+            <img
+              src="https://png.pngtree.com/png-vector/20220603/ourlarge/pngtree-rag-doll-toy-wrist-png-image_4843361.png"
+              alt=""
+              className="w-32 h-32"
+            />
+            <div>
+              <h1 className="font-bold">Girl Baby Toy </h1>
+              <p>
+                Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio
+              </p>
+              <Link>Read More</Link>
+            </div>
+          </div>
+          <div className="flex">
+            <img
+              src="https://png.pngtree.com/element_our/png_detail/20181113/isometric-kid-toy-png_236063.jpg"
+              alt=""
+              className="w-32 h-32"
+            />
+            <div>
+              <h1 className="font-bold">Dog Toy</h1>
+              <p>
+                Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio
+              </p>
+              <Link>Read More</Link>
             </div>
           </div>
         </div>
-        <div className="w-[85%] mx-auto gap-8 flex my-28">
-          <div className="flex">
-            <img
-              src="/public/featured/product-1.png"
-              alt=""
-              className="w-32 h-32"
-            />
-            <div>
-              <h1>Nordic Chair</h1>
-              <p>
-                Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio
-              </p>
-              <Link>Read More</Link>
-            </div>
-          </div>
-          <div className="flex">
-            <img
-              src="/public/featured/product-2.png"
-              alt=""
-              className="w-32 h-32"
-            />
-            <div>
-              <h1 className="font-bold">Kruzo Aero Chair </h1>
-              <p>
-                Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio
-              </p>
-              <Link>Read More</Link>
-            </div>
-          </div>
-          <div className="flex">
-            <img
-              src="/public/featured/product-3.png"
-              alt=""
-              className="w-32 h-32"
-            />
-            <div>
-              <h1 className="font-bold">Ergonomic Chair</h1>
-              <p>
-                Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio
-              </p>
-              <Link>Read More</Link>
-            </div>
-          </div>
+        <div className="flex justify-center my-5 text-4xl ">
+          <h1>Testimonials</h1>
         </div>
         <div className="my-10">
           <SimpleSlider testimonials={dummyTestimonials} />
         </div>
-        <div className="my-20  w-[85%] mx-auto">
+        <div className="my-20  w-[85%] mx-auto ">
           <div className="flex justify-between ">
             <div className="font-semibold text-4xl">Recent Blog</div>
             <div>
               <Link className="border-b-2 border-black">View All Posts</Link>
             </div>
           </div>
-          <div className=" flex gap-10 mt-14 justify-center">
+          <div className=" flex gap-10 mt-14 justify-center flex-wrap   md:flex-nowrap">
             <RecentBlog
-              imageUrl="/featured/post-1.jpg"
-              title="First Time Home Owner Ideas"
-              author="Kristin Watson"
-              date="Dec 19, 2021"
+              imageUrl="https://m.media-amazon.com/images/I/51u3J4tZpSL._SL500_.jpg"
+              title="New Baby Essentials"
+              author="Bob"
+              date="march 19, 2024"
               link="/blog/first-time-home-owner-ideas"
             />
             <RecentBlog
-              imageUrl="/featured/post-2.jpg"
-              title="First Time Home Owner Ideas"
-              author="Kristin Watson"
-              date="Dec 19, 2021"
+              imageUrl="	https://m.media-amazon.com/images/I/51Ty-AQerBL._SL500_.jpg"
+              title="New Baby Essentials"
+              author="Bob"
+              date="march 19, 2024"
               link="/blog/first-time-home-owner-ideas"
             />
             <RecentBlog
-              imageUrl="/featured/post-3.jpg"
-              title="First Time Home Owner Ideas"
-              author="Kristin Watson"
-              date="Dec 19, 2021"
+              imageUrl="https://m.media-amazon.com/images/I/51bhuTrVWZL._SL500_.jpg"
+              title="New Baby Essentials"
+              author="Bob"
+              date="march 19, 2024"
               link="/blog/first-time-home-owner-ideas"
             />
           </div>

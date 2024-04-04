@@ -1,63 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
 import Slider from "react-slick";
-
-function CustomArrow({ className, style, onClick, backgroundColor }) {
-  return (
-    <div
-      className={className}
-      style={{
-        ...style,
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        color: "#EFF2F1",
-        fontSize: "5vw", // Adjust the size of the arrow icon based on screen width
-        width: "5vw", // Adjust the size of the arrow container based on screen width
-        height: "5vw", // Adjust the size of the arrow container based on screen width
-        borderRadius: "50%",
-        backgroundColor: backgroundColor || "#CED6D3",
-        transition: "background-color 0.3s",
-        cursor: "pointer",
-        paddingLeft: "10px", // Add left padding to the arrow
-        paddingRight: "10px", // Add right padding to the arrow
-        margin: ["-70px", "-40px", "-20px", "-20px"], // Responsive margin for mobile, tablet, laptop, desktop
-      }}
-      onClick={onClick}
-      onMouseEnter={(e) => e.target.style.backgroundColor =  " #3B5D50"}
-      onMouseLeave={(e) => e.target.style.backgroundColor = "#CED6D3"}
-    >
-    </div>
-  );
-}
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+// import "./CustomSlider.css"; // Import your custom CSS file
 
 function CustomArrows({ testimonials, className }) {
+  const [activeDot, setActiveDot] = useState(0); // State to track active dot index
+
   const settings = {
-    dots: true,
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    nextArrow: <CustomArrow />,
-    prevArrow: <CustomArrow />,
+    arrows: false, 
+    dots: true,
+    appendDots: dots => (
+      <div className="dots-container">
+        <ul style={{ margin: "0px" }}> {dots} </ul>
+      </div>
+    ),
+    customPaging: i => (
+      <div className={activeDot === i ? "active-dot" : "dot"}></div> // Custom dot component with active class
+    ),
+    beforeChange: (oldIndex, newIndex) => setActiveDot(newIndex) // Update active dot index on slider change
   };
 
   return (
-    <div className="slider-container relative px-24"> {/* Add padding to the slider container */}
+    <div className="slider-container relative"> {/* Set the height of the slider container to h-screen */}
       <Slider {...settings}>
         <div>
-          {/* Apply w-full class to the image element */}
-          <img src="/public/featured/post-1.jpg" alt="" className="w-full h-1/2" />
+          {/* slider1: Make the image fill the entire slider container */}
+          <img src="/public/Home/Silder-1.jpg" alt="" className="w-full h-[400px] object-cover" />
         </div>
+        
         <div>
-          {/* Apply w-full class to the image element */}
-          <img src="/public/featured/post-1.jpg" alt="" className="w-full" />
+          {/* slider3: Make the image fill the entire slider container */}
+          <img src="/public/Home/Slider-3.jpg" alt="" className="w-full h-[400px] object-cover" />
         </div>
+       
         <div>
-          {/* Apply w-full class to the image element */}
-          <img src="/public/featured/post-1.jpg" alt="" className="w-full" />
+          {/* slider3: Make the image fill the entire slider container */}
+          <img src="/public/Home/Slider-6.jpg" alt="" className="w-full h-[400px] object-cover" />
         </div>
+
+
         <div>
-          {/* Apply w-full class to the image element */}
-          <img src="/public/featured/post-1.jpg" alt="" className="w-full" />
+          {/* slider3: Make the image fill the entire slider container */}
+          <img src="/public/Home/Slider-8.jpg" alt="" className="w-full h-[400px] object-cover" />
+        </div>
+
+        <div>
+          {/* slider3: Make the image fill the entire slider container */}
+          <img src="/public/Home/Slider-10.jpg" alt="" className="w-full h-[400px] object-cover" />
+        </div>
+
+        <div>
+          {/* slider3: Make the image fill the entire slider container */}
+          <img src="/public/Home/Slider-11.jpg" alt="" className="w-full h-[400px] object-cover" />
         </div>
       </Slider>
     </div>

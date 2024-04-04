@@ -11,22 +11,27 @@ const Footer = () => {
   const footerdata = [
     {
       title: "About Us",
-      path: "/aboutus",
+      path: "/about",
     },
 
     {
-      title: "Services",
-      path: "/aboutus",
+      title: "Shop",
+      path: "/shop",
     },
     {
       title: "Blog",
-      path: "/aboutus",
+      path: "/Blogs",
     },
     {
       title: "Contact us",
-      path: "/aboutus",
+      path: "/contact",
     },
   ];
+
+  const handleMenuClick = () => {
+    window.scrollTo(0, 0);
+    setshowMenu(false);
+  };
   return (
     <div className="flex justify-center">
       <div className="w-[95%] sm:w-[75%] md:w-11/12  h-screen mt-20">
@@ -38,37 +43,45 @@ const Footer = () => {
           <div className="flex w-full gap-5  flex-wrap sm:flex-nowrap  mt-5 ">
             <input
               type="text"
-              className="border border-gray-300 py-3 px-2 rounded-lg md:w-72 "
+              className="border border-gray-300 py-3 px-2 rounded-lg w-full "
               placeholder="Enter your name"
             />
-            <div className=" flex flex-wrap gap-4">
+            <div className=" w-full flex flex-wrap gap-4">
               <input
                 type="text"
-                className="border border-gray-300 py-3 px-2 rounded-lg  md:w-72 "
+                className="border border-gray-300 py-3 px-2 rounded-lg  w-full "
                 placeholder="Enter your email"
               />
-              <div>
-                <button
-                  type="button"
-                  className="bg-[#3b5d50]  px-3.5 py-3 rounded-xl text-white"
-                >
-                  <FaPaperPlane />
-                </button>
-              </div>
+            
             </div>
           </div>
         </div>
         <div className="mt-10">
-          <div className="text-[#3B5D50] font-semibold  text-3xl">Furni.</div>
+          <div className="text-[#3B5D50] font-semibold  text-3xl">Baby Shop</div>
 
-          <div className="flex lg:w-1/2 gap-8 flex-wrap lg:flex-nowrap">
-            <div className="text-[#6a6a6a] leading-7 w-full">
+          <div>
+            <div className="flex justify-between flex-wrap w-[80%] md:w-11/12">
+            <div className="text-[#6a6a6a] w-[60%] leading-7 mt-10 ">
               Transform your living space into a haven of comfort and style with
               Furni Website. Explore our curated collection of premium furniture
               and elevate your home with quality craftsmanship and timeless
               design. Shop now and discover the perfect pieces to make your
               house feel like a true sanctuary.
-              <div className="flex gap-1.5 mt-5">
+            
+            </div>
+            <div className="flex flex-col whitespace-nowrap mt-10 gap-2">
+              {footerdata?.map((item, index) => (
+                <Link
+                  key={index}
+                  to={item?.path}
+                  onClick={handleMenuClick}
+                  className="text-[#2f2f2f] hover:text-[#979797]"
+                >
+                  {item?.title}
+                </Link>
+              ))}
+            </div>
+            <div className="flex gap-1.5 mt-10">
                 <div className="bg-[#DCE5E4] hover:bg-[#3B5D50] hover:text-white text-[#3B5D50] w-10 h-10 flex items-center justify-center rounded-full text-2xl">
                   <TiSocialFacebook />
                 </div>
@@ -82,18 +95,9 @@ const Footer = () => {
                   <RiLinkedinBoxFill />
                 </div>
               </div>
+            
             </div>
-            <div className="flex flex-col whitespace-nowrap gap-2">
-              {footerdata?.map((item, index) => (
-                <Link
-                  key={index}
-                  to={item?.path}
-                  className="text-[#2f2f2f] hover:text-[#979797]"
-                >
-                  {item?.title}
-                </Link>
-              ))}
-            </div>
+          
           </div>
         </div>
 

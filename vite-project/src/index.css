@@ -1,3 +1,48 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.menu-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 900px;
+    background-color: #3B5D50;
+    color: black;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(-100%);
+  }
+  
+  .menu-container.show-menu {
+    transform: translateX(0%);
+  }
+  
+  
+  .dots-container {
+    position: absolute;
+    bottom: 20px; /* Adjust the distance from the bottom of the slider */
+    left: 50%; /* Position the dots container in the center horizontally */
+    transform: translateX(-50%); /* Center the dots container horizontally */
+    z-index: 10; /* Ensure dots are above the images */
+  }
+  
+  .dot {
+    width: 12px; /* Customize dot size */
+    height: 12px; /* Customize dot size */
+    border-radius: 50%; /* Make the dots circular */
+    background-color: #3B5D50; /* Customize inactive dot color */
+    display: inline-block;
+    margin: 0 5px; /* Add spacing between dots */
+  }
+  
+  .active-dot {
+    width: 12px; /* Customize dot size */
+    height: 12px; /* Customize dot size */
+    border-radius: 50%; /* Make the dots circular */
+    background-color: #000000; /* Customize active dot color */
+    display: inline-block;
+    margin: 0 5px; /* Add spacing between dots */
+  }
+  
