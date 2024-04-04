@@ -121,10 +121,10 @@ const Home = () => {
           Button1Classname="bg-[#F9BF29]"
           Button2Classname="border-[#9DACA0] border-2 "
           buttonText2="Explore"
-          imageUrl="/featured/toys.png"
+          imageUrl="/featured/toybanner.png"
         />
-        <div className="w-[85%] mx-auto flex my-20 gap-5">
-          <div className="w-1/3">
+        <div className="w-[85%] mx-auto flex flex-wrap md:flex-nowrap my-20 gap-5">
+          <div className="w-full flex flex-col items-center md:w-1/3">
             <div className="text-3xl font-semibold">
               Crafted with excellent material.
             </div>
@@ -136,7 +136,7 @@ const Home = () => {
               Explore
             </button>
           </div>
-          <div className="flex ">
+          <div className="flex flex-wrap md:flex-nowrap">
             {apiData.map((item, index) => (
               <Card
                 linkTo={item.linkTo}
@@ -154,7 +154,7 @@ const Home = () => {
         <div className="w-[95%] mx-auto flex my-10">
           <div className="w-full flex  flex-wrap lg:flex-nowrap gap-14 ">
             <div className="w-full lg:w-[50%]">
-              <div className="mt-20 px-10">
+              <div className=" px-10">
                 <h1 className="text-3xl text-[#2F2F2F] font-medium">
                   Why Choose Us
                 </h1>
@@ -175,27 +175,20 @@ const Home = () => {
                 ))}
               </div>
             </div>
-            <div className="w-full lg:w-[40%] flex justify-end">
-              <DotImages
-                numRows={8}
-                numDots={9}
-                dotColors="bg-[#F9BF29] "
-                imageSrc="/public/featured/img-grid-2.jpg"
-                className={"w-1/2"}
-                ImageClass={"w-full mt-10 ml-12 "}
-              />
-            </div>
+        <div>
+<img src="/featured/choose.png" alt="" />
+        </div>
           </div>
         </div>
-        <div className="w-[85%] mx-auto gap-8 flex my-28">
+        <div className="w-[85%] mx-auto gap-8 flex flex-wrap md:flex-nowrap my-28">
           <div className="flex">
             <img
               src="https://png.pngtree.com/png-clipart/20231014/original/pngtree-toy-teddy-bear-in-brown-color-png-image_13300050.png"
               alt=""
               className="w-32 h-32"
             />
-            <div className="font-bold">
-              <h1>Baby Doll Toy</h1>
+            <div className="">
+              <h1 className="font-bold">Baby Doll Toy</h1>
               <p>
               Experience joy with our Baby Doll Toy collection.
               </p>
@@ -209,7 +202,7 @@ const Home = () => {
               className="w-32 h-32"
             />
             <div>
-              <h1 className="font-bold">Kruzo Aero Chair </h1>
+              <h1 className="font-bold">Girl Baby Toy </h1>
               <p>
                 Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio
               </p>
@@ -223,7 +216,7 @@ const Home = () => {
               className="w-32 h-32"
             />
             <div>
-              <h1 className="font-bold">Ergonomic Chair</h1>
+              <h1 className="font-bold">Dog Toy</h1>
               <p>
                 Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio
               </p>
@@ -237,33 +230,33 @@ const Home = () => {
         <div className="my-10">
           <SimpleSlider testimonials={dummyTestimonials} />
         </div>
-        <div className="my-20  w-[85%] mx-auto">
+        <div className="my-20  w-[85%] mx-auto ">
           <div className="flex justify-between ">
             <div className="font-semibold text-4xl">Recent Blog</div>
             <div>
               <Link className="border-b-2 border-black">View All Posts</Link>
             </div>
           </div>
-          <div className=" flex gap-10 mt-14 justify-center">
+          <div className=" flex gap-10 mt-14 justify-center flex-wrap   md:flex-nowrap">
             <RecentBlog
               imageUrl="https://m.media-amazon.com/images/I/51u3J4tZpSL._SL500_.jpg"
-              title="First Time Home Owner Ideas"
-              author="Kristin Watson"
-              date="Dec 19, 2021"
+              title="New Baby Essentials"
+              author="Bob"
+              date="march 19, 2024"
               link="/blog/first-time-home-owner-ideas"
             />
             <RecentBlog
               imageUrl="	https://m.media-amazon.com/images/I/51Ty-AQerBL._SL500_.jpg"
-              title="First Time Home Owner Ideas"
-              author="Kristin Watson"
-              date="Dec 19, 2021"
+              title="New Baby Essentials"
+              author="Bob"
+              date="march 19, 2024"
               link="/blog/first-time-home-owner-ideas"
             />
             <RecentBlog
               imageUrl="https://m.media-amazon.com/images/I/51bhuTrVWZL._SL500_.jpg"
-              title="First Time Home Owner Ideas"
-              author="Kristin Watson"
-              date="Dec 19, 2021"
+              title="New Baby Essentials"
+              author="Bob"
+              date="march 19, 2024"
               link="/blog/first-time-home-owner-ideas"
             />
           </div>
