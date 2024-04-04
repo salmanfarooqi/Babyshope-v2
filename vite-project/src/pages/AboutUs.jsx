@@ -102,15 +102,8 @@ const AboutUs = () => {
                 ))}
               </div>
             </div>
-            <div className="w-full lg:w-[40%] flex justify-end">
-              <DotImages
-                numRows={8}
-                numDots={9}
-                dotColors="bg-[#F9BF29] "
-                imageSrc="/public/featured/img-grid-2.jpg"
-                className={"w-1/2"}
-                ImageClass={"w-full mt-10 ml-12 "}
-              />
+            <div>
+              <img src="/featured/choose.png" alt="" />
             </div>
           </div>
         </div>
