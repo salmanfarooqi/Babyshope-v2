@@ -277,6 +277,9 @@ function ShoppingCart() {
                   </thead>
                   <tbody>
                     {cartItems.map(item => (
+                      <>
+                       
+                      
                       <tr key={item.id}>
                         <td className="text-center">
                           <img src={`/featured/bowl-2.png`} alt="Image" className="w-24 h-24 object-cover mx-auto" />
@@ -295,7 +298,9 @@ function ShoppingCart() {
                         <td className="text-center"> &pound;{(item.price * item.quantity).toFixed(2)}</td>
                         <td className="text-center"><button className="btn btn-black btn-sm" onClick={() => removeItem(item.id)}>X</button></td>
                       </tr>
+                      </>
                     ))}
+                
                   </tbody>
                 </table>
               </div>
