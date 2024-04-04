@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import SimpleSlider from "../components/SimpleSlider";
 import RecentBlog from "../components/RecentBlog";
 import axios from "axios";
+import HomeSlider from "../components/HomeSlider";
 const Home = () => {
   const [apiData,setapiData]=useState([])
   useEffect(() => {
@@ -113,13 +114,14 @@ const Home = () => {
   return (
     <Layout>
       <div className="bg-[#EFF2F1] pb-24">
-        <HomeBanner
+        {/* <HomeBanner
           title="The Ultimate Baby Haven - Welcome!"
           description="Step into a world of wonder and warmth at our Baby Shop! From adorable apparel to essential accessories, we've got everything to make your little one's journey as sweet as can be. Explore now and let the magic of parenthood unfold!"
           buttonText1="Shop Now"
           buttonText2="Explore"
           imageUrl="https://time.com/shopping/static/98259b8f68e4d765e…aabbbb57c27/4febf/best-baby-toys-6-12-months.webp"
-        />
+        /> */}
+        <HomeSlider/>
         <div className="w-[85%] mx-auto flex my-20 gap-5">
           <div className="w-1/3">
             <div className="text-3xl font-semibold">

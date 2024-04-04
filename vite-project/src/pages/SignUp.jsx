@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Layout from '../components/Layout';
 import { ToastContainer, toast } from 'react-toastify';
@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 function SignUp() {
+  let navigate=useNavigate()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -30,6 +31,8 @@ function SignUp() {
       });
       console.log(response.data.message,"response");
       toast.success(response.data.message)
+
+      navigate("/login")
       
      
     } catch (error) {
