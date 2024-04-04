@@ -4,7 +4,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 // import "./CustomSlider.css"; // Import your custom CSS file
 
-function CustomArrows({ testimonials, className }) {
+function HomeSlider({ testimonials, className }) {
   const [activeDot, setActiveDot] = useState(0); // State to track active dot index
 
   const settings = {
@@ -62,4 +62,4 @@ function CustomArrows({ testimonials, className }) {
   );
 }
 
-export default CustomArrows;
+export default HomeSlider;

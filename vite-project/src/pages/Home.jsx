@@ -1,3 +1,8 @@
+
+ 
+
+
+
 import React, { useEffect, useState } from "react";
 import Layout from "../components/Layout";
 import HomeBanner from "../components/HomeBannar";
@@ -9,51 +14,9 @@ import SimpleSlider from "../components/SimpleSlider";
 import RecentBlog from "../components/RecentBlog";
 import axios from "axios";
 import HomeSlider from "../components/HomeSlider";
+
 const Home = () => {
-  const [apiData, setapiData] = useState([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("http://localhost:9000/product");
-        console.log("data", response.data);
-
-        setapiData(response.data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
-  const CardData = [
-    {
-      className: "",
-      linkTo: "/cart",
-      productName: "Nordic Chair",
-      productPrice: "£50.00",
-      productImage: "/featured/product-1.png",
-      overlayColor: "#DCE5E4",
-      overlayOpacity: "20",
-    },
-    {
-      className: "",
-      linkTo: "/cart",
-      productName: "Nordic Chair",
-      productPrice: "£50.00",
-      productImage: "/featured/product-1.png",
-      overlayColor: "#DCE5E4",
-      overlayOpacity: "20",
-    },
-    {
-      className: "",
-      linkTo: "/cart",
-      productName: "Nordic Chair",
-      productPrice: "£50.00",
-      productImage: "/featured/product-1.png",
-      overlayColor: "#DCE5E4",
-      overlayOpacity: "20",
-    },
-  ];
+  const [apiData, setApiData] = useState([]);
   const choosdata = [
     {
       imageSrc: "/public/featured/truck.svg",
@@ -108,8 +71,35 @@ const Home = () => {
       author: "John Doe",
       position: "CTO, ABC Inc.",
     },
-    // Add more dummy testimonial objects as needed
+
   ];
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://localhost:9000/product");
+        console.log("data", response.data);
+        setApiData(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const addToCart = async (productId) => {
+    try {
+      const response = await axios.post("http://localhost:9000/add-to-cart", {
+        productId: productId
+      });
+      console.log("Product added to cart:", response.data);
+      // You can handle the response or any other action after adding to cart
+    } catch (error) {
+      console.error("Error adding product to cart:", error);
+    }
+  };
+
   return (
     <Layout>
       <div className="bg-[#EFF2F1] pb-24">
@@ -142,7 +132,8 @@ const Home = () => {
           <div className="flex flex-wrap md:flex-nowrap">
             {apiData.map((item, index) => (
               <Card
-                linkTo={item.linkTo}
+                key={index}
+                productId={item._id}
                 productName={item.name}
                 productPrice={item.price}
                 productImage="/public/featured/product-1.png"
@@ -150,6 +141,7 @@ const Home = () => {
                 overlayOpacity={item.overlayOpacity}
                 showIcon={true}
                 className="w-"
+                addToCart={() => addToCart(item._id)} // Pass addToCart function with productId as argument
               />
             ))}
           </div>
