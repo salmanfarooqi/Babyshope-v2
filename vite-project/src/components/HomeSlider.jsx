@@ -61,5 +61,4 @@ function HomeSlider({ testimonials, className }) {
     </div>
   );
 }
-
 export default HomeSlider;
