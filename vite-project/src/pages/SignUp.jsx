@@ -30,6 +30,7 @@ function SignUp() {
         password
       });
       console.log(response.data.message,"response");
+      
       toast.success(response.data.message)
 
       navigate("/login")

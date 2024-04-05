@@ -35,7 +35,7 @@ function Card({ className, productId, productName, productPrice, productImage, a
   // const handleClick = () => {
   //   onBuyClick(productId);
   // };
-
+console.log("productPicture",productImage)
   return (
     <div className={` ${className} w-full relative group `}>
     
@@ -43,8 +43,8 @@ function Card({ className, productId, productName, productPrice, productImage, a
           <div className='image-container'>
             <img src={productImage || ""} className="w-full mb-auto" alt="Product Image" />
           </div>
-          <h3 className="text-lg font-medium mt-10">{productName}</h3>
-          <strong className="block mt-3 mb-10">{productPrice}</strong>
+          <h3 className="text-lg font-medium mt-10">{productName }</h3>
+          <strong className="block mt-3 mb-10">{productPrice + "$"}</strong>
           <span className={`absolute bottom-0 left-0 w-full h-2/3 bg-[#DCE5E4] opacity-0 transition-opacity duration-500 group-hover:opacity-20`}></span>
           {/* Buy Now Button */}
           <button onClick={addToCart} className="absolute bottom-0 mt-12  text-white py-2 px-4 rounded  transition-colors duration-300 hidden group-hover:block">
