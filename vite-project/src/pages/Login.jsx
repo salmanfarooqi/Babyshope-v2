@@ -14,6 +14,7 @@ function LoginForm() {
 
   const { email, password } = formData;
 
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -25,14 +26,21 @@ function LoginForm() {
         email,
         password
       });
-      toast.success(response.data.message)
-      localStorage.setItem(response.data.token)
-      console.log(response.data.token)
-      // navigate("/")
+      // if(response){
+        console.log(response?.data.token,"res")
+      localStorage.setItem("token",response?.data?.token)
+      localStorage.setItem("userId",response?.data?.userId)
+   
+      console.log(response)
+      toast.success(response?.data?.message)
+    
+      navigate("/")
+      // }
+      
       
     
     } catch (error) {
-          toast.error(error.response.data.message)
+          // toast.error(error.response.data.message)
     
     }
   };

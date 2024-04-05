@@ -75,6 +75,9 @@ const Home = () => {
 
   ];
 
+//  let data= localStorage.getItem()
+//  console.log("userId is saved",data)
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -93,7 +96,9 @@ const Home = () => {
     try {
 // Cartrouter.post('/add-to-cart', cartController.addToCart);
 const response = await axios.post("http://localhost:9000/add-to-cart", {
-        productId: productId
+        productId: productId,
+        userId:localStorage.getItem("userId")
+        
       });
        toast.success(response.data.message)
       // You can handle the response or any other action after adding to cart
@@ -136,7 +141,7 @@ const response = await axios.post("http://localhost:9000/add-to-cart", {
                 productId={item._id}
                 productName={item.name}
                 productPrice={item.price}
-                productImage="/public/featured/product-1.png"
+                productImage= {item.imageUrl|| ""}
                 overlayColor={item.overlayColor}
                 overlayOpacity={item.overlayOpacity}
                 showIcon={true}
