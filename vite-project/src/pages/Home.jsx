@@ -1,8 +1,3 @@
-
- 
-
-
-
 import React, { useEffect, useState } from "react";
 import Layout from "../components/Layout";
 import HomeBanner from "../components/HomeBannar";
