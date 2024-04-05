@@ -25,14 +25,11 @@ function LoginForm() {
         email,
         password
       });
-      const token = response.data.token;
-
-      // Store token in localStorage
-      localStorage.setItem('token', token);
-
       toast.success(response.data.message)
-      navigate("/")
-
+      localStorage.setItem(response.data.token)
+      console.log(response.data.token)
+      // navigate("/")
+      
     
     } catch (error) {
           toast.error(error.response.data.message)
