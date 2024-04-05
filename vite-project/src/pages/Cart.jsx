@@ -180,41 +180,39 @@ function ShoppingCart() {
   const [cartItems, setCartItems] = useState([]);
   const [subtotal, setSubtotal] = useState(0);
   const [total, setTotal] = useState(0);
-  const [productID,setProductID]=useState([{
-    _id:"",
-    productId:""
+ 
 
-  }])
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await axios.get("http://localhost:9000");
+  //       console.log("data", response.data);
+  //        response.data.map((item)=>{
+  //         setProductID({
+  //           _id:item?._id,
+  //           productId:item?.productId
+
+  //         })
+  //        })
+  //       // setApiData(response.data);
+  //     } catch (error) {
+  //       console.error("Error fetching data:", error.response.message);
+  //     }
+  //   };
+
+  //   fetchData();
+  //   console.log("all the data",productID)
+  // }, []);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get("http://localhost:9000");
-        console.log("data", response.data);
-         response.data.map((item)=>{
-          setProductID({
-            _id:item?._id,
-            productId:item?.productId
-
-          })
-         })
-        // setApiData(response.data);
-      } catch (error) {
-        console.error("Error fetching data:", error.response.message);
-      }
-    };
-
-    fetchData();
-    console.log("all the data",productID)
-  }, []);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("http://localhost:9000/product");
         const apiProducts = response.data; // Assuming the API response contains an array of products
+        console.log("cartData",apiProducts)
+        // alert("Data")
         const cartItemsFromApi = apiProducts.map(product => ({
-          id: product.productId, // Assuming the product ID is named 'productId' in the API response
+          id: product._id, // Assuming the product ID is named 'productId' in the API response
           name: product.name,
           price: product.price,
           quantity: 1 // Default quantity
@@ -287,7 +285,7 @@ function ShoppingCart() {
                         <td className="text-center">
                           <h2 className="h5 text-black">{item.name}</h2>
                         </td>
-                        <td className="text-center">&pound;{item.price.toFixed(2)}</td>
+                        <td className="text-center">&pound;{item.price}</td>
                         <td className="text-center">
                           <div className="flex justify-center items-center space-x-2">
                             <button className="btn btn-outline-black decrease" type="button" onClick={() => updateQuantity(item.id, Math.max(item.quantity - 1, 1))}>&minus;</button>

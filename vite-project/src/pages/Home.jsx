@@ -12,6 +12,8 @@ import DotImages from "../components/DotImages";
 import { Link } from "react-router-dom";
 import SimpleSlider from "../components/SimpleSlider";
 import RecentBlog from "../components/RecentBlog";
+import {toast,ToastContainer} from 'react-toastify'
+
 import axios from "axios";
 
 const Home = () => {
@@ -89,10 +91,11 @@ const Home = () => {
 
   const addToCart = async (productId) => {
     try {
-      const response = await axios.post("http://localhost:9000/add-to-cart", {
+// Cartrouter.post('/add-to-cart', cartController.addToCart);
+const response = await axios.post("http://localhost:9000/add-to-cart", {
         productId: productId
       });
-      console.log("Product added to cart:", response.data);
+       toast.success(response.data.message)
       // You can handle the response or any other action after adding to cart
     } catch (error) {
       console.error("Error adding product to cart:", error);
@@ -253,7 +256,9 @@ const Home = () => {
             />
           </div>
         </div>
+        <ToastContainer/>
       </div>
+      
     </Layout>
   );
 };
