@@ -14,8 +14,6 @@ import Shop from './pages/Shop';
 import Blogs from './pages/Blogs';
 import ContactForm from './pages/ContactUs';
 import ProtectRoute from './components/ProtectRoute';
-
-
 const App = () => {
   return (
     <div>
