@@ -15,7 +15,6 @@ import Blogs from './pages/Blogs';
 import ContactForm from './pages/ContactUs';
 import ProtectRoute from './components/ProtectRoute';
 import Checkout from './pages/Checkout';
-import NewBannar from './pages/NewBannar';
 
 
 const App = () => {
@@ -32,7 +31,6 @@ const App = () => {
         <Route path='/Blogs' element={<Blogs/>} />
         <Route path='/contact' element={<ProtectRoute component={ContactForm} />} />
         <Route path='/Checkout' element={<Checkout/>} />
-        <Route path='/NewBannar' element={<NewBannar/>}/>
         
       
       </Routes>
