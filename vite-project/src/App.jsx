@@ -1,6 +1,3 @@
-
-
-
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
@@ -19,7 +16,6 @@ const App = () => {
     <div>
       <Routes>
       <Route path="/" element={<Home/>} />
- 
         <Route path='/cart' element={<ProtectRoute component={Cart} />} />
         <Route path='/about' element={<AboutUs/>} />
         <Route  path='/login' element={<LoginForm/>} />
@@ -27,7 +23,7 @@ const App = () => {
         <Route path='/Shop' element={< ProtectRoute component={Shop} />} />
         <Route path='/Blogs' element={<Blogs/>} />
         <Route path='/contact' element={<ProtectRoute component={ContactForm} />} />
-        {/* <Route path='/Checkout' element={<Checkout/>} /> */}
+        <Route path='/Checkout' element={<Checkout/>} />
         
       
       </Routes>
