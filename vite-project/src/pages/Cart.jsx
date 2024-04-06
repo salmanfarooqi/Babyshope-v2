@@ -1,65 +1,126 @@
-import { useState, useEffect } from 'react';
 
-// import React, { useState, useEffect } from 'react';
+
+
+
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import Layout from '../components/Layout';
 import HomeBanner from "../components/HomeBannar";
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import YourOrder from '../components/YourOrder';
 
 function ShoppingCart() {
   const [cartItems, setCartItems] = useState([]);
   const [subtotal, setSubtotal] = useState(0);
   const [total, setTotal] = useState(0);
+  const [reload,setReload]=useState(false)
   const navigate = useNavigate();
 
-  let dataToSend=[...cartItems]
-  console.log("data to send: ", dataToSend)
+
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("http://localhost:9000/product");
+        const response = await axios.get("http://localhost:9000/");
         const products = response.data; // Assuming the API response contains an array of products
+        
+        // Fetch userId from localStorage
+        const userIdFromLocalStorage = localStorage.getItem('userId');
+        
         // Map the products to cart items
         const cartItemsFromApi = products.map(product => ({
-          id: product._id, 
-          name: product.name,
-          price: product.price,
-          quantity: 1 // Default quantity
+          id: product._id,
+          name: product.productId.name,
+          price: product.productId.price,
+          quantity: product.quantity || 1,
+          image: product.productId.imageUrl,
+          userId: product.userId // Assuming userId is available in the API response
         }));
-        setCartItems(cartItemsFromApi);
+  
+        // Filter cart items based on userId
+        const filteredCartItems = cartItemsFromApi.filter(item => item.userId === userIdFromLocalStorage);
+        
+        setCartItems(filteredCartItems);
       } catch (error) {
         console.error("Error fetching products:", error);
       }
     };
-
+  
     fetchProducts();
-  }, []);
+  }, [reload]);
+  
 
+  // useEffect(() => {
+  //   const fetchProducts = async () => {
+  //     try {
+  //       const response = await axios.get("http://localhost:9000/");
+  //       const products = response.data;
+  //       const cartItemsFromApi = products.map(product => ({
+  //         id: product._id,
+  //         name: product.productId.name,
+  //         price: product.productId.price,
+  //         quantity: product.quantity || 1,
+  //         image: product.productId.imageUrl
+  //       }));
+  //       setCartItems(cartItemsFromApi);
+  //     } catch (error) {
+  //       console.error("Error fetching products:", error);
+  //     }
+  //   };
+
+  //   fetchProducts();
+  // }, [reload]);
+
+
+  let handleDelete=async(id,e)=>{
+    e.preventDefault();
+    try {
+      let deleteItem=await axios.post("http://localhost:9000/deleteCartItems",{
+        cartItemId:id
+
+      })
+
+      setReload(!reload)
+      
+    } catch (error) {
+        console.log("erro",error)
+    }
+  }
   useEffect(() => {
     let subtotalAmount = 0;
     cartItems.forEach(item => {
       subtotalAmount += item.price * item.quantity;
     });
     setSubtotal(subtotalAmount);
-    // You might have additional logic for taxes, discounts, shipping, etc., to calculate total
     setTotal(subtotalAmount);
   }, [cartItems]);
-  console.log(cartItems,"cartItems")
 
-  const updateQuantity = (id, newQuantity) => {
-    setCartItems(prevItems =>
-      prevItems.map(item =>
-        item.id === id ? { ...item, quantity: newQuantity } : item
-      )
-    );
+  const updateQuantity = async (id, newQuantity) => {
+    try {
+      await axios.post("http://localhost:9000/updateCartQuantity", {
+        cartItemId: id,
+        quantity: newQuantity
+      });
+      setCartItems(prevItems =>
+        prevItems.map(item =>
+          item.id === id ? { ...item, quantity: newQuantity } : item
+        )
+      );
+    } catch (error) {
+      console.error("Error updating quantity:", error);
+    }
   };
 
-  const removeItem = (id) => {
-    setCartItems(prevItems =>
-      prevItems.filter(item => item.id !== id)
-    );
+  const fetchProduct = async (id) => {
+    try {
+      await axios.post("http://localhost:9000/deleteCartItems", {
+        cartItemId: id
+      });
+      setCartItems(prevItems =>
+        prevItems.filter(item => item.id !== id)
+      );
+    } catch (error) {
+      console.error("Error deleting product:", error);
+    }
   };
 
   const handleCheckout = () => {
@@ -93,8 +154,7 @@ function ShoppingCart() {
                       {cartItems.map(item => (
                         <tr key={item.id}>
                           <td className="text-center">
-                            {/* Adjust the image source based on your API response */}
-                            <img src={`/featured/bowl-2.png`} alt="Image" className="w-24 h-24 object-cover mx-auto" />
+                            <img src={item.image} alt="Image" className="w-24 h-24 object-cover mx-auto" />
                           </td>
                           <td className="text-center">
                             <h2 className="h5 text-black">{item.name}</h2>
@@ -108,7 +168,7 @@ function ShoppingCart() {
                             </div>
                           </td>
                           <td className="text-center"> &pound;{(item.price * item.quantity)}</td>
-                          <td className="text-center"><button className="btn btn-black btn-sm" onClick={() => removeItem(item.id)}>X</button></td>
+                          <td className="text-center" onClick={(e) => handleDelete(item.id,e)}><button className="">X</button></td>
                         </tr>
                       ))}
                     </tbody>
@@ -116,11 +176,8 @@ function ShoppingCart() {
                 </div>
               </form>
             </div>
-
-            {/* Checkout section */}
             <div className="md:flex md:justify-between">
-              <div className="mb-5 md:w-[40%] md:mb-0">
-                {/* Continue shopping and Apply coupon */}
+              <div className="md:w-[40%] md:mb-0">
                 <div className="flex flex-wrap items-center">
                   <div className="w-full md:w-6/12 mb-3 md:mb-0">
                     <label className="text-black text-lg mb-1" htmlFor="coupon">Coupon</label>
@@ -133,7 +190,6 @@ function ShoppingCart() {
                 </div>
               </div>
               <div className="md:w-[40%] md:pl-5">
-                {/* Cart totals and Proceed to checkout */}
                 <div className="flex justify-end">
                   <div className="w-full md:w-9/12">
                     <div className="flex py-1 border-b border-black mb-5">
@@ -163,9 +219,7 @@ function ShoppingCart() {
               </div>
             </div>
           </div>
-          <div className="hidden">
-            {/* <YourOrder cartData={cartItems}/> */}
-          </div>
+          
         </div>
       </>
     </Layout>
@@ -173,3 +227,4 @@ function ShoppingCart() {
 }
 
 export default ShoppingCart;
+
