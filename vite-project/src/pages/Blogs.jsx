@@ -7,63 +7,63 @@ import SimpleSlider from "../components/SimpleSlider";
 const Blogs = () => {
   const data = [
     {
-      imageUrl: "/public/featured/post-2.jpg",
+      imageUrl: "https://png.pngtree.com/png-vector/20220603/ourlarge/pngtree-rag-doll-toy-wrist-png-image_4843361.png",
       title: "First Time Home Owner Ideas",
       author: "Kristin Watson",
       date: " Dec 19, 2021",
       link: "",
     },
     {
-      imageUrl: "/public/featured/post-2.jpg",
+      imageUrl: "https://png.pngtree.com/element_our/png_detail/20181113/isometric-kid-toy-png_236063.jpg",
       title: "First Time Home Owner Ideas",
       author: "Kristin Watson",
       date: " Dec 19, 2021",
       link: "",
     },
     {
-      imageUrl: "/public/featured/post-3.jpg",
+      imageUrl: "https://m.media-amazon.com/images/I/51bhuTrVWZL._SL500_.jpg",
       title: "First Time Home Owner Ideas",
       author: "Kristin Watson",
       date: " Dec 19, 2021",
       link: "",
     },
     {
-      imageUrl: "/public/featured/post-2.jpg",
+      imageUrl:"https://m.media-amazon.com/images/I/51u3J4tZpSL._SL500_.jpg",
       title: "First Time Home Owner Ideas",
       author: "Kristin Watson",
       date: " Dec 19, 2021",
       link: "",
     },
     {
-      imageUrl: "/public/featured/post-3.jpg",
+      imageUrl: "	https://m.media-amazon.com/images/I/51Ty-AQerBL._SL500_.jpg",
       title: "First Time Home Owner Ideas",
       author: "Kristin Watson",
       date: " Dec 19, 2021",
       link: "",
     },
     {
-      imageUrl: "/public/featured/post-1.jpg",
+      imageUrl: "https://m.media-amazon.com/images/I/51bhuTrVWZL._SL500_.jpg",
       title: "First Time Home Owner Ideas",
       author: "Kristin Watson",
       date: " Dec 19, 2021",
       link: "",
     },
     {
-      imageUrl: "/public/featured/post-2.jpg",
+      imageUrl:"https://m.media-amazon.com/images/I/51Ty-AQerBL._SL500_.jpg",
       title: "First Time Home Owner Ideas",
       author: "Kristin Watson",
       date: " Dec 19, 2021",
       link: "",
     },
     {
-      imageUrl: "/public/featured/post-3.jpg",
+      imageUrl: "https://m.media-amazon.com/images/I/51bhuTrVWZL._SL500_.jpg",
       title: "First Time Home Owner Ideas",
       author: "Kristin Watson",
       date: " Dec 19, 2021",
       link: "",
     },
     {
-      imageUrl: "/public/featured/post-1.jpg",
+      imageUrl: "	https://m.media-amazon.com/images/I/51Ty-AQerBL._SL500_.jpg",
       title: "First Time Home Owner Ideas",
       author: "Kristin Watson",
       date: " Dec 19, 2021",
@@ -108,7 +108,8 @@ const Blogs = () => {
         Button1Classname="bg-[#F9BF29]"
         Button2Classname="border-[#9DACA0] border-2"
         title="Blog"
-        description="Discover the latest trends and tips for interior design on the Furni Website blog. From practical decor ideas to expert advice on furniture selection, our blog is your go-to resource for creating stylish and inviting living spaces"
+        description=" 
+        Explore our blog for valuable insights, expert tips, and practical advice on all things baby and parenting. From developmental milestones to product reviews, we're here to support you every step of the way on your parenting journey."
         buttonText1="Shop Now"
         buttonText2="Explore"
         imageUrl="/public/featured/couch.png"
