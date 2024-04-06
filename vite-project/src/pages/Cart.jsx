@@ -82,7 +82,6 @@ function ShoppingCart() {
       subtotalAmount += item.price * item.quantity;
     });
     setSubtotal(subtotalAmount);
-    // You might have additional logic for taxes, discounts, shipping, etc., to calculate total
     setTotal(subtotalAmount);
   }, [cartItems]);
   console.log(cartItems,"cartItems")
