@@ -55,7 +55,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="mt-10">
-          <div className="text-[#3B5D50] font-semibold  text-3xl">
+          <div className="text-[#3B5D50] font-semibold  text-3xl"  >
             Baby Shop
           </div>
 
