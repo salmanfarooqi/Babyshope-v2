@@ -9,11 +9,12 @@ function ContactForm() {
         <>
          <HomeBanner
         title="contact us"
-        description="Cutting Edge Interior Design Studio: Where creativity meets precision. Elevate your space with innovative design concepts tailored to your unique style."
-        buttonText1="Shop Now"
-        buttonText2="Explore"
+        description=" We're available Monday through Friday, from 9:00 AM to 5:00 PM (EST), and we're always here to help you with any questions."
+        buttonText1="shop Now"
+        buttonText2="Explore "
+      
         imageUrl="/public/featured/couch.png"
-        Button1Classname="bg-[#F9BF29]"
+        Button1Classname="bg-[#F9BF29] "
         Button2Classname="border-[#9DACA0] border-2"
       />
     <div className="bg-[#EFF2F1] py-10">

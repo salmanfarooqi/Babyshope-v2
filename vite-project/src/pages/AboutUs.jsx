@@ -70,7 +70,8 @@ const AboutUs = () => {
       <div className="bg-[#EFF2F1] pb-24">
         <HomeBanner
           title="About us"
-          description="Cutting Edge Interior Design Studio: Where creativity meets precision. Elevate your space with innovative design concepts tailored to your unique style."
+          description="
+Our baby ecommerce platform is committed to providing parents with a hassle-free shopping experience, offering a curated selection of high-quality products for infants and toddlers."
           buttonText1="Shop Now"
           buttonText2="Explore"
           imageUrl="/public/featured/couch.png"

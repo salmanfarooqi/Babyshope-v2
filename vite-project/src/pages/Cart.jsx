@@ -176,7 +176,7 @@ function ShoppingCart() {
                 </div>
               </form>
             </div>
-            <div className="md:flex px-8 md:px-0  md:justify-between">
+            <div className="md:flex px-10 md:px-0  md:justify-between">
               <div className="md:w-[40%] md:mb-0">
                 <div className="flex flex-wrap items-center">
                   <div className="w-full md:w-6/12 mb-3 md:mb-0">

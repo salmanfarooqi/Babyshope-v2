@@ -7,7 +7,7 @@ function HomeBannar({ className,title, description,Button1Classname, buttonText1
       <div className='w-full md:w-[87%] flex flex-col md:flex-row'>
         <div className='w-full md:w-[40%] flex flex-col justify-center'>
           <p className='font-bold text-3xl md:text-5xl text-white'>{title}</p>
-          <p className='mt-6 md:mt-10 text-lg md:text-xl font-medium text-[#9DACA0]'>{description}</p>
+          <p className='mt-6 md:mt-10 text-lg md:text-xl font-medium text-gray-300'>{description}</p>
           {/* <div className='w-full  flex mt-8'> */}
           { buttonText2 && (
             <div className='w-full flex  gap-5 mt-8 '>

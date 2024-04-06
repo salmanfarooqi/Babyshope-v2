@@ -84,9 +84,12 @@ function Shop() {
       <Layout>
         <HomeBannar
           title="Shop"
-          //   Button1Classname="bg-black"
-          //   Button2Classname="border-[#9DACA0] border-2"
-          className="h-[220px]  px-10"
+
+          description=" 
+          Discover a thoughtfully curated assortment of baby products in our shop, ensuring both quality and convenience for busy parents. From diapers to nursery essentials, we've got you covered with trusted brands and reliable customer service."
+        
+          
+          className="h-[320px]  px-10"
         />
         <div className="w-full flex justify-center items-center mt-20">
           <div className="w-[90%] flex ">
