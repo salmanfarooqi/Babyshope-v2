@@ -51,8 +51,8 @@ function BillingDetails() {
             onChange={(e) => setPostalZip(e.target.value)}
           />
         </div>
-        <div className="flex w-full justify-between ">
-          <div className="flex flex-col w-[48%]">
+        <div className="flex flex-col lg:flex lg:flex-row w-full justify-between ">
+          <div className="flex flex-col w-full lg:w-[48%]">
             <label>Email Address *</label>
             <input
               type="text"
@@ -61,7 +61,7 @@ function BillingDetails() {
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-          <div className="flex flex-col w-[48%]">
+          <div className="flex flex-col w-full lg:w-[48%]">
             <label>Phone *</label>
             <input
               type="text"
