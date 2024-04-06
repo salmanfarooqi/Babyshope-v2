@@ -73,9 +73,10 @@ const AboutUs = () => {
           description="Cutting Edge Interior Design Studio: Where creativity meets precision. Elevate your space with innovative design concepts tailored to your unique style."
           buttonText1="Shop Now"
           buttonText2="Explore"
-          imageUrl="/public/featured/couch.png"
+          imageUrl="/public/Shoptools/image - 1 (1).png"
           Button1Classname="bg-[#F9BF29]"
         Button2Classname="border-[#9DACA0] border-2"
+        ImageClasss=""
         />
 
         <div className="w-[95%] mx-auto flex my-10">
@@ -92,13 +93,14 @@ const AboutUs = () => {
                 </p>
               </div>
               <div className="grid grid-cols-2 mt-9 ">
-                {choosdata.map((item, index) => (
-                  <ChooseUsCard
+                {choosdata.map((item, index) => (<>                  <ChooseUsCard
                     imageSrc={item.imageSrc}
                     title={item.title}
                     description={item.description}
                     className={"px-0 text-sm"}
                   />
+                  </>
+
                 ))}
               </div>
             </div>

@@ -84,9 +84,14 @@ function Shop() {
       <Layout>
         <HomeBannar
           title="Shop"
-          //   Button1Classname="bg-black"
-          //   Button2Classname="border-[#9DACA0] border-2"
-          className="h-[220px]  px-10"
+          description="At Baby Shop, we specialize in providing the best products and care for your precious bundle of joy.Welcome to Baby Shop, where we bring joy and comfort to your little one's world"
+          Button1Classname="bg-[#F9BF29]"
+        Button2Classname="border-[#9DACA0] border-2"
+            buttonText1="Shop Now"
+          buttonText2="Explore"
+          className="h-[290px]  px-10"
+          imageUrl="/public/Shoptools/image-8.png"
+
         />
         <div className="w-full flex justify-center items-center mt-20">
           <div className="w-[90%] flex ">

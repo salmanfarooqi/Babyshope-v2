@@ -31,8 +31,8 @@ const Checkout = () => {
               <div className="flex flex-col">
                 <p className="font-bold text-3xl py-3">Coupon Code</p>
                 <CouponCode />
-                <p className="font-bold text-3xl py-3 mt-8">Your Order</p>
-                <YourOrder />
+                {/* <p className="font-bold text-3xl py-3 mt-8">Your Order</p> */}
+                {/* <YourOrder /> */}
               </div>
             </div>
           </div>

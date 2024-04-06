@@ -84,7 +84,7 @@ function ContactForm() {
 
                     <button
                       type="submit"
-                      className="bg-[#3B5D50] mt-8  text-white font-bold py-2 px-4 rounded-xl focus:outline-none focus:shadow-outline"
+                      className="bg-[#5B5B5B] mt-8  text-white font-bold py-2 px-4 rounded-xl focus:outline-none focus:shadow-outline"
                     >
                       Send Message
                     </button>

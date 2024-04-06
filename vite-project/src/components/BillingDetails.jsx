@@ -10,6 +10,7 @@ function BillingDetails() {
   const [phoneNumber, setPhoneNumber] = useState("");
 
   return (
+    <>
     <div className="w-full py-10 border-gray-300 border px-10 rounded-sm text-[#6A6A6A]">
       <div className="flex flex-col">
         <div className="flex w-full justify-between ">
@@ -72,15 +73,24 @@ function BillingDetails() {
           </div>
         </div>
       </div>
-      <YourOrder
+      
+    </div>
+
+
+<div className="mt-[30px] w-full ">    
+<p className="font-bold text-3xl py-3 mt-8  text-[#6A6A6A]">Your Order</p>
+  <YourOrder
         phoneNumber={phoneNumber}
       
         postalZip={postalZip}
     
         streetAddress={streetAddress}
-      className="hidden"
+      className="w-full "
+
       />
-    </div>
+      </div>
+
+      </>
   );
 }
 

@@ -186,7 +186,7 @@ function ShoppingCart() {
                     <input type="text" className="form-input py-4 px-4 rounded-md w-full" id="coupon" placeholder="Coupon Code" />
                   </div>
                   <div className="w-full py-4 justify-end ">
-                    <button className="bg-black text-white py-2 px-4 rounded-full">Apply Coupon</button>
+                    <button className="bg-[#6A6A6A] hover:bg-black text-white py-2 px-4 rounded-md">Apply Coupon</button>
                   </div>
                 </div>
               </div>
@@ -213,7 +213,7 @@ function ShoppingCart() {
                       </div>
                     </div>
                     <div className="flex justify-end">
-                      <button className="bg-black text-white py-2 px-4 rounded-full w-full" onClick={handleCheckout}>Proceed To Checkout</button>
+                      <button className="bg-[#6A6A6A] hover:bg-black text-white py-2 px-4 rounded-md w-full" onClick={handleCheckout}>Proceed To Checkout</button>
                     </div>
                   </div>
                 </div>

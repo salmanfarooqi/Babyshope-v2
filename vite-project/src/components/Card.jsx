@@ -47,8 +47,9 @@ console.log("productPicture",productImage)
           <strong className="block mt-3 mb-10">{productPrice + "$"}</strong>
           <span className={`absolute bottom-0 left-0 w-full h-2/3 bg-[#DCE5E4] opacity-0 transition-opacity duration-500 group-hover:opacity-20`}></span>
           {/* Buy Now Button */}
-          <button onClick={addToCart} className="absolute bottom-0 mt-12  text-white py-2 px-4 rounded  transition-colors duration-300 hidden group-hover:block">
-          <img src="public/featured/icons8-plus.svg" className="w-8 h-8" alt="Close Icon" />
+          <button onClick={addToCart} className="absolute bottom-0 mt-12  text-white py-2 px-4 rounded  transition-colors duration-300 ">
+          {/* <img src="public/featured/icons8-plus.svg" className="w-8 h-8" alt="Close Icon" /> */}
+          <p className='text-white font-bold bg-[#6A6A6A] px-2' >+<span >Add TO  Cart</span></p>
           </button>
         </div>
    

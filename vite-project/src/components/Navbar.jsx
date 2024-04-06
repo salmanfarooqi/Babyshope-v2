@@ -113,7 +113,7 @@
 
 
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BsFillPersonFill } from "react-icons/bs";
 import { FaCartShopping } from "react-icons/fa6";
 import { RxHamburgerMenu } from "react-icons/rx";
@@ -121,6 +121,7 @@ import { RxCross2 } from "react-icons/rx";
 
 const Navbar = () => {
   const [showMenu, setshowMenu] = useState(false);
+  const navigate = useNavigate();
   
 
   const navbardata = [
@@ -153,12 +154,15 @@ const Navbar = () => {
     window.scrollTo(0, 0);
     setshowMenu(false); // Close the menu if it's open
   };
+  const handleCheckout = () => {
+    navigate('/');
+  };
 
   return (
-    <div className="flex justify-center items-center bg-[#3B5D50] h-20 sticky top-0 z-50">
+    <div className="flex justify-center items-center bg-[#e4e7e9] h-20 sticky top-0 z-50">
       <div className="w-[90%] lg:w-[90%] flex justify-between items-center">
-        <div className="text-white font-semibold  text-4xl">
-          Baby Shop<span className="text-gray-400">.</span>
+        <div className="text-white font-semibold  text-4xl cursor-pointer" onClick={handleCheckout}>
+          Baby Shop<span className="text-[#6A6A6A]">.</span>
         </div>
         <div className="hidden md:block">
           <div className=" flex gap-10  text-gray-400 font-semibold ">
@@ -169,7 +173,7 @@ const Navbar = () => {
                   to={item?.path}
                   onClick={handleMenuClick}
                   className={
-                    "hover:border-b-4 hover:border-yellow-600 hover:text-white"
+                    "hover:border-b-4 hover:border-gray-700 hover:text-[#6A6A6A]"
                   }
                 >
                   {item?.title}
@@ -177,10 +181,10 @@ const Navbar = () => {
               ))}
             </div>
             <div className="flex items-center text-2xl gap-7">
-              <Link to="/login" className="hover:text-white">
+              <Link to="/login" className="hover:text-[#6A6A6A]">
                 <BsFillPersonFill />
               </Link>
-              <Link to="/cart" className="hover:text-white">
+              <Link to="/cart" className="hover:text-[#6A6A6A]">
                 <FaCartShopping />
               </Link>
             </div>

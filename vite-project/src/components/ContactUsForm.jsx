@@ -28,7 +28,7 @@ Last name</label>
 />
 
     </div>
-    <button className="font-bold text-sm bg-[#222222] px-5 py-2 mt-4 rounded-3xl text-white">Send Message</button>
+    <button className="font-bold text-sm bg-[#6A6A6A] px-5 py-2 mt-4 rounded-3xl text-white">Send Message</button>
     </div>
     
     

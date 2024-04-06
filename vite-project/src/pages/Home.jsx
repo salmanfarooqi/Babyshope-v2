@@ -128,7 +128,7 @@ const response = await axios.post("http://localhost:9000/add-to-cart", {
               Skillfully fashioned from premium materials, embodying quality and
               precision in every detail.
             </div>
-            <button className="bg-[#2F2F2F] mt-7 text-white rounded-full px-5 py-2">
+            <button className="bg-[#6A6A6A] hover:bg-black mt-7 text-white rounded-md px-5 py-2">
               Explore
             </button>
           </div>
