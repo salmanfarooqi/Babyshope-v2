@@ -176,7 +176,7 @@ function ShoppingCart() {
                 </div>
               </form>
             </div>
-            <div className="md:flex md:justify-between">
+            <div className="md:flex px-8 md:px-0  md:justify-between">
               <div className="md:w-[40%] md:mb-0">
                 <div className="flex flex-wrap items-center">
                   <div className="w-full md:w-6/12 mb-3 md:mb-0">
@@ -211,8 +211,8 @@ function ShoppingCart() {
                         <strong className="text-black">&pound;{total.toFixed(2)}</strong>
                       </div>
                     </div>
-                    <div className="flex justify-end">
-                      <button className="bg-black text-white py-2 px-4 rounded-full w-full" onClick={handleCheckout}>Proceed To Checkout</button>
+                    <div className="flex justify-center md:justify-end">
+                      <button className="bg-black text-white py-2 px-2 md:px-4 rounded-full w-[80] md:w-full" onClick={handleCheckout}>Proceed To Checkout</button>
                     </div>
                   </div>
                 </div>
