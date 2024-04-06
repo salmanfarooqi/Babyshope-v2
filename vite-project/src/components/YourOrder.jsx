@@ -30,7 +30,6 @@ function YourOrder({ className, phoneNumber, postalZip, streetAddress }) {
     }, 0);
     setCartSubtotal(subtotal);
   }, [cartData]);
-
   const createOrder = async () => {
     try {
       const userIdFromLocalStorage = localStorage.getItem('userId');
