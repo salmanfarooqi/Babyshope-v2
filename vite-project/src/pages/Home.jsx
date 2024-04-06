@@ -164,13 +164,16 @@ const response = await axios.post("http://localhost:9000/add-to-cart", {
               </div>
               <div className="grid grid-cols-2 mt-9 ">
                 {choosdata.map((item, index) => (
-                  <ChooseUsCard
+                  <>                 <ChooseUsCard
                     imageSrc={item.imageSrc}
                     title={item.title}
                     description={item.description}
                     className={"px-0 text-sm"}
                   />
+                      </>
+ 
                 ))}
+            
               </div>
             </div>
         <div>

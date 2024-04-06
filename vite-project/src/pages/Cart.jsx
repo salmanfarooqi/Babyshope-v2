@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 
-import React, { useState, useEffect } from 'react';
 import Layout from '../components/Layout';
 import HomeBanner from "../components/HomeBannar";
 import axios from 'axios';
@@ -11,11 +10,11 @@ function ShoppingCart() {
   const [cartItems, setCartItems] = useState([]);
   const [subtotal, setSubtotal] = useState(0);
   const [total, setTotal] = useState(0);
+  const [ deleteItems ,setdeleteItems]=useState("")
   const navigate = useNavigate();
 
   let dataToSend=[...cartItems]
   console.log("data to send: ", dataToSend)
-
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -37,6 +36,46 @@ function ShoppingCart() {
     fetchProducts();
   }, []);
 
+
+
+
+    // const fetchProduct = async (id) => {
+    //   try {
+    //       axios.post("http://localhost:9000/deleteCartItems",{
+    //         cartItemId:id
+    //     });
+       
+    //     // console.log('fetchProduct', fetchProduct);
+    //     console.log('ID:', id);
+    //   } catch (error) {
+    //     console.error("Error fetching products:", error);
+    //   }
+
+
+    // };
+    
+    const fetchProduct = async (id,quantity) => {
+      try {
+          axios.post("http://localhost:9000/updateCardQuantity",{
+            cartItemId:id,
+            quantity:quantity
+        });
+       
+        // console.log('fetchProduct', fetchProduct);
+        console.log('ID:', id);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+
+
+    };
+    
+
+
+
+
+
+
   useEffect(() => {
     let subtotalAmount = 0;
     cartItems.forEach(item => {
@@ -48,7 +87,12 @@ function ShoppingCart() {
   }, [cartItems]);
   console.log(cartItems,"cartItems")
 
-  const updateQuantity = (id, newQuantity) => {
+  const updateQuantity = async(id, newQuantity) => {
+  let response= await  axios.post("http://localhost:9000/updateCartQuantity",{
+            cartItemId:id,
+            quantity:newQuantity
+        });
+        console.log(response.data.message,"response")
     setCartItems(prevItems =>
       prevItems.map(item =>
         item.id === id ? { ...item, quantity: newQuantity } : item
@@ -108,7 +152,7 @@ function ShoppingCart() {
                             </div>
                           </td>
                           <td className="text-center"> &pound;{(item.price * item.quantity)}</td>
-                          <td className="text-center"><button className="btn btn-black btn-sm" onClick={() => removeItem(item.id)}>X</button></td>
+                          <td className="text-center" onClick={()=> fetchProduct(item.id)}><button className="btn btn-black btn-sm" onClick={() => removeItem(item.id)}>X</button></td>
                         </tr>
                       ))}
                     </tbody>
