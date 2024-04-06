@@ -135,10 +135,10 @@ function ShoppingCart() {
           className=""
         />
         <div className="main_co-section before-footer-section bg-gray-100">
-          <div className="container mx-auto py-8">
-            <div className="mb-5">
+          <div className="container mx-auto py-5 sm:py-8">
+            <div className="mb-5 ">
               <form className="max-w-full">
-                <div className="site-blocks-table">
+                <div className="site-blocks-table  ">
                   <table className="table w-full">
                     <thead>
                       <tr>
@@ -153,8 +153,8 @@ function ShoppingCart() {
                     <tbody>
                       {cartItems.map(item => (
                         <tr key={item.id}>
-                          <td className="text-center">
-                            <img src={item.image} alt="Image" className="w-24 h-24 object-cover mx-auto" />
+                          <td className="text-center ">
+                            <img src={item.image} alt="Image" className="w-16 sm:w-24 h-16 sm:h-24 !rounded-full sm:rounded-none object-cover mx-auto" />
                           </td>
                           <td className="text-center">
                             <h2 className="h5 text-black">{item.name}</h2>
@@ -163,7 +163,7 @@ function ShoppingCart() {
                           <td className="text-center">
                             <div className="flex justify-center items-center space-x-2">
                               <button className="btn btn-outline-black decrease" type="button" onClick={() => updateQuantity(item.id, Math.max(item.quantity - 1, 1))}>&minus;</button>
-                              <input type="text" className="form-input text-center w-12" value={item.quantity} readOnly />
+                              <input type="text" className="form-input text-center w-10 sm:w-12" value={item.quantity} readOnly />
                               <button className="btn btn-outline-black increase" type="button" onClick={() => updateQuantity(item.id, item.quantity + 1)}> + </button>
                             </div>
                           </td>
@@ -172,11 +172,12 @@ function ShoppingCart() {
                         </tr>
                       ))}
                     </tbody>
-                  </table>
+                  </table> 
+                   
                 </div>
               </form>
             </div>
-            <div className="md:flex px-10 md:px-0  md:justify-between">
+            <div className="md:flex md:justify-between">
               <div className="md:w-[40%] md:mb-0">
                 <div className="flex flex-wrap items-center">
                   <div className="w-full md:w-6/12 mb-3 md:mb-0">
@@ -189,7 +190,7 @@ function ShoppingCart() {
                   </div>
                 </div>
               </div>
-              <div className="md:w-[40%] md:pl-5">
+              <div className="md:w-[40%] md:pl-5 px-5 sm:px-0">
                 <div className="flex justify-end">
                   <div className="w-full md:w-9/12">
                     <div className="flex py-1 border-b border-black mb-5">

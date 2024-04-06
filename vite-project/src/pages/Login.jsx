@@ -34,13 +34,15 @@ function LoginForm() {
       console.log(response)
       toast.success(response?.data?.message)
     
-      navigate("/")
-      // }
+     setTimeout(() => {
+      navigate("/");
+    }, 2000); 
+    
       
       
     
     } catch (error) {
-          // toast.error(error.response.data.message)
+          toast.error(error.response.data.message)
     
     }
   };
@@ -60,11 +62,11 @@ function LoginForm() {
                 <label htmlFor="password">Password:</label>
                 <input type="password" className="block w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-400" id="password" placeholder="Enter password" name="password" value={password} onChange={handleChange} required />
               </div>
-              <div className="mb-3">
+              {/* <div className="mb-3">
                 <input type="checkbox" className="form-checkbox" id="remember" name="remember" />
                 <label htmlFor="remember" className="ml-2">Remember me</label>
-              </div>
-              <button type="submit" className="block w-full bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Login</button>
+              </div> */}
+              <button type="submit" className="block w-full bg-[#6a6a6a]  mt-4 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Login</button>
               <div className="text-center mt-4">
                 <Link to={"/register"}><p className="block mt-2 text-blue-500 hover:text-blue-700">New here? Register</p></Link>
               </div>
