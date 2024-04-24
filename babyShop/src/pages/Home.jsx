@@ -4,7 +4,7 @@ import HomeBanner from "../components/HomeBannar";
 import Card from "../components/Card";
 import ChooseUsCard from "../components/ChooseUsCard";
 import DotImages from "../components/DotImages";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SimpleSlider from "../components/SimpleSlider";
 import RecentBlog from "../components/RecentBlog";
 import { toast, ToastContainer } from 'react-toastify'
@@ -73,6 +73,7 @@ const Home = () => {
 
   //  let data= localStorage.getItem()
   //  console.log("userId is saved",data)
+  const navigate=useNavigate()
 
   useEffect(() => {
     const fetchData = async () => {
@@ -153,13 +154,13 @@ const Home = () => {
         className="w-1/3"
         addToCart={() => addToCart(item._id)}
       />
-    ))}
+    ))}      <div  className="cursor-pointer bg-red-500" onClick={()=>{navigate(`/ProductDetails/${item._id}`)}}>
   </div>
 </div> */}
 <div className="flex w-full justify-start items-start">
   <div className="flex flex-wrap w-full">
     {apiData.map((item, index) => (
-      <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/3" key={index}>
+      <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/3" key={index}  onClick={()=>{navigate(`/ProductDetails/${item._id}`)}}>
         <Card
           productId={item._id}
           productName={item.name}
@@ -192,14 +193,22 @@ const Home = () => {
               </div>
               <div className="grid grid-cols-2 mt-9 ">
                 {choosdata.map((item, index) => (
-                  <>                 <ChooseUsCard
+                  <>
+                  {/* <Link  to={`/ProductDetails/${item._id}`} */}
+                  
+                  
+                   
+                   
+                            
+                    <ChooseUsCard
                     imageSrc={item.imageSrc}
                     title={item.title}
                     description={item.description}
                     className={"px-0 text-sm"}
                   />
-                  </>
-
+                  
+                 
+                  </> 
                 ))}
 
               </div>

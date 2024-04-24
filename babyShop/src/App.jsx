@@ -13,6 +13,7 @@ import ContactForm from './pages/ContactUs';
 import ProtectRoute from './components/ProtectRoute';
 import Checkout from './pages/Checkout';
 import ThankYouPage from './pages/ThankYour';
+import ProductDetails from './pages/ProductDetails';
 
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
       <Route path="/" element={<Home/>} />
         <Route path='/cart' element={<ProtectRoute component={Cart} />} />
         <Route path='/about' element={<AboutUs/>} />
+        <Route path='/ProductDetails/:id' element={<ProductDetails/>} />
         <Route  path='/login' element={<LoginForm/>} />
         <Route path='/Register' element={<SignUp/>} />
         <Route path='/Shop' element={< Shop />} />
