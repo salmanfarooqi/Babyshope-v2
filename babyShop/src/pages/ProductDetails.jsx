@@ -10,7 +10,46 @@ function ProductDetails() {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [itemsData1,setitemsData1]=useState([{}
+  
+  ])
+
   const { id } = useParams();
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get("http://localhost:9000/product");
+       
+        const products = response.data; // Assuming the API response contains an array of products
+        setitemsData1(response.data)
+        // Fetch userId from localStorage
+        const userIdFromLocalStorage = localStorage.getItem('userId');
+        
+        // Map the products to cart items
+        const cartItemsFromApi = products.map(product => ({
+          id: product._id,
+          name: product.productId.name,
+          price: product.productId.price,
+          quantity: product.quantity || 1,
+          image: product.productId.imageUrl,
+          userId: product.userId // Assuming userId is available in the API response
+        }));
+  
+        // Filter cart items based on userId
+        const filteredCartItems = cartItemsFromApi.filter(item => item.userId === userIdFromLocalStorage);
+        
+        setitemsData1(filteredCartItems);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+  
+    fetchProducts();
+  }, []);
+
+
+
   useEffect(() => {
     const fetchProductDetails = async () => {
       try {
@@ -50,6 +89,8 @@ const response = await axios.post("http://localhost:9000/add-to-cart", {
       console.error("Error adding product to cart:", error);
     }
   };
+
+ 
   return (
     <Layout>
       <div className="w-full justify-center">
@@ -86,23 +127,26 @@ const response = await axios.post("http://localhost:9000/add-to-cart", {
             </div>
           </div>
         </div>
-        <div className="w-full flex justify-center mt-[650px] xs:mt-[600px] sm:mt-[750px] md:mt-[400px] lg:mt-[500px]">
-          <div className="w-[70%] h-[100px] md:h-[250px] flex justify-between flex-wrap">
-          <div className="w-[60px] md:w-[150px]">
-              <img src="/public/Home/brand-1.jpg" alt="Brand 1" />
-            </div>
-            <div className="w-[60px] md:w-[150px]">
-              <img src="/public/Home/brand-2.jpg" alt="Brand 2" />
-            </div>
-            <div className="w-[60px] md:w-[150px]">
-              <img src="/public/Home/brand-3.jpg" alt="Brand 3" />
-            </div>
-            <div className="w-[60px] md:w-[150px]">
-              <img src="/public/Home/brand-4.jpg" alt="Brand 4" />
-            </div>
-            <div className="w-[60px] md:w-[150px]">
-              <img src="/public/Home/brand-5.jpg" alt="Brand 5" />
-            </div>
+     
+        <div className="w-full flex justify-center mt-[500px] ssm:mt-[600px] sm:mt-[600px] md:mt-[400px]">
+      <div className="w-[70%] flex justify-start items-center flex-wrap gap-4">
+            {itemsData1.map((item) => (
+              <Link
+               to={`/ProductDetails/${item._id}`}
+                key={item._id}
+                className="flex flex-col border mt-4 w-full sm:w-[220px]  lg:w-[220px] justify-center items-center"
+              >
+                <img src={"/"+item.imageUrl} alt="" className="object-cover  md:[250px] md:h-[250px]" />
+                <p className="text-center px-2 py-2">{item.name}</p>
+                <p className="py-3">{item.price}</p>
+                <Link
+            className="px-2 py-1 bg-[#d9f4f0] hover:bg-[#88C8BC]"
+            onClick={() => addToCart(item._id)}
+          >
+            Add To Cart
+          </Link>
+              </Link>
+            ))}
           </div>
         </div>
         <ToastContainer/>

@@ -160,7 +160,7 @@ const Home = () => {
 <div className="flex w-full justify-start items-start">
   <div className="flex flex-wrap w-full">
     {apiData.map((item, index) => (
-      <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/3" key={index}  onClick={()=>{navigate(`/ProductDetails/${item._id}`)}}>
+      <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/3 my-10" key={index}  onClick={()=>{navigate(`/ProductDetails/${item._id}`)}}>
         <Card
           productId={item._id}
           productName={item.name}

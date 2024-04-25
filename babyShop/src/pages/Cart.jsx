@@ -6,13 +6,17 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Layout from '../components/Layout';
 import HomeBanner from "../components/HomeBannar";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import {toast,ToastContainer} from 'react-toastify'
 
 function ShoppingCart() {
   const [cartItems, setCartItems] = useState([]);
   const [subtotal, setSubtotal] = useState(0);
   const [total, setTotal] = useState(0);
   const [reload,setReload]=useState(false)
+  const [itemsData1,setitemsData1]=useState([{}
+  
+  ])
   const navigate = useNavigate();
 
 
@@ -21,8 +25,9 @@ function ShoppingCart() {
     const fetchProducts = async () => {
       try {
         const response = await axios.get("http://localhost:9000/");
+       
         const products = response.data; // Assuming the API response contains an array of products
-        
+        setitemsData1(response.data)
         // Fetch userId from localStorage
         const userIdFromLocalStorage = localStorage.getItem('userId');
         
@@ -49,6 +54,39 @@ function ShoppingCart() {
   }, [reload]);
   
 
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get("http://localhost:9000/product");
+       
+        const products = response.data; // Assuming the API response contains an array of products
+        setitemsData1(response.data)
+        // Fetch userId from localStorage
+        const userIdFromLocalStorage = localStorage.getItem('userId');
+        
+        // Map the products to cart items
+        const cartItemsFromApi = products.map(product => ({
+          id: product._id,
+          name: product.productId.name,
+          price: product.productId.price,
+          quantity: product.quantity || 1,
+          image: product.productId.imageUrl,
+          userId: product.userId // Assuming userId is available in the API response
+        }));
+  
+        // Filter cart items based on userId
+        const filteredCartItems = cartItemsFromApi.filter(item => item.userId === userIdFromLocalStorage);
+        
+        setCartItems(filteredCartItems);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+  
+    fetchProducts();
+  }, [reload]);
+  
   // useEffect(() => {
   //   const fetchProducts = async () => {
   //     try {
@@ -110,6 +148,8 @@ function ShoppingCart() {
     }
   };
 
+
+
   const fetchProduct = async (id) => {
     try {
       await axios.post("http://localhost:9000/deleteCartItems", {
@@ -126,6 +166,7 @@ function ShoppingCart() {
   const handleCheckout = () => {
     navigate('/Checkout');
   };
+
 
   return (
     <Layout>
@@ -218,14 +259,24 @@ function ShoppingCart() {
                     {/* <div className="flex justify-center md:justify-end">
                       <button className="bg-black text-white py-2 px-2 md:px-4 rounded-full w-[80] md:w-full" onClick={handleCheckout}>Proceed To Checkout</button>
                     </div> */}
+
+              
                   </div>
                 </div>
+              
               </div>
+            
             </div>
+           
           </div>
-          
+
+      
+          <ToastContainer/>
+
         </div>
+     
       </>
+     
     </Layout>
   );
 }

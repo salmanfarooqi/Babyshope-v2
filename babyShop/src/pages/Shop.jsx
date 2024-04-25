@@ -4,6 +4,7 @@ import HomeBannar from "../components/HomeBannar";
 import Card from "../components/Card";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 function Shop() {
   const data = [
@@ -51,6 +52,9 @@ function Shop() {
 
   const [apiData, setApiData] = useState([]);
 
+
+  const navigate=useNavigate()
+
   
   useEffect(() => {
     const fetchData = async () => {
@@ -94,8 +98,8 @@ function Shop() {
 
         />
         <div className="w-full flex justify-center items-center mt-20">
-          <div className="w-[90%] flex ">
-            <div className="w-full flex flex-wrap gap-4 justify-center items-center mb-32 ">
+          {/* <div className=" flex "> */}
+            <div className="w-[80%] flex flex-wrap gap-4 justify-start items-start mb-24 ">
               {/* {data.map((item, index) => (
                 <Card
                   key={index}
@@ -106,20 +110,30 @@ function Shop() {
                   showIcon={true}
                 />
               ))} */}
+
               {apiData.map((item, index) => (
+                <>               
+                <div onClick={()=>{navigate(`/ProductDetails/${item._id}`)}}>
+                 {/* <div className=" "> */}
                 <Card
                   key={index}
-                  className="!w-[240px]"
+                  className="!w-[240px] my-14"
                   productName={item.name} 
                   productPrice={item.price} 
                   productImage={item.imageUrl} 
                   showIcon={true}
                   addToCart={() => addToCart(item._id)} // Pass addToCart function with productId as argument
                 />
+                {/* </div> */}
+                </div>
+              </>
+
               ))}
+              </div>
+
+              
             </div>
-          </div>
-        </div>
+        {/* </div> */}
       </Layout>
       <ToastContainer />
       ;

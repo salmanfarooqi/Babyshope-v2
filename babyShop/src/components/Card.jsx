@@ -41,7 +41,7 @@ console.log("productPicture",productImage)
     
         <div className="w-full flex flex-col items-center justify-center relative group-hover:translate-y-[-20px] transition-transform duration-300">
           <div className='image-container'>
-            <img src={productImage || ""} className="w-full mb-auto" alt="Product Image" />
+            <img src={productImage || ""} className="w-full md:w-[250px] md:h-[250px] mb-auto" alt="" />
           </div>
           <h3 className="text-lg font-medium mt-10">{productName }</h3>
           <strong className="block mt-3 mb-10">{productPrice + "$"}</strong>
